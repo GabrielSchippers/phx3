@@ -1,0 +1,93 @@
+<app-loader *ngIf="loading"></app-loader>
+ <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+ <app-header></app-header>
+ 
+ <div class="container">
+     <div class="row">
+      
+         <div class="col-12">
+             <h3>Resource Edit</h3>
+            <form (ngSubmit)="edit(obj)">
+                
+                <div class="col-sm-4 silver">
+                <div class="form-group pad">
+                    <label>Category</label>
+                    <select class="form-control" name="Status" [(ngModel)]="obj.Category">
+                        <option [value]="1">Explain Pain</option>
+                        <option [value]="2">Graded Motor Imagery</option>
+                        <option [value]="3">Neurological Damage</option>
+                        <option [value]="4">Health Info</option>
+                        <option [value]="5">Blogs</option>
+                        <option [value]="6">Associations</option>
+                        <option [value]="7">Research</option>
+                        <option [value]="8">Events</option>
+                        <option [value]="9">Stockists</option>
+                        <option [value]="10">Random</option>
+                       
+                        
+                    </select>
+                  </div>
+                    </div>
+                    
+                    <div class="col-sm-8">
+                       <div class="form-group pad">
+                          
+                           <p><img class="img-fluid" src="http://13.55.59.91/uploads/{{obj.image}}"> </p>
+                           
+                        <label>Image</label>
+                       <app-file-upload (filename)="handle($event, 'image')"></app-file-upload>
+                        
+                       </div>
+                    </div>
+                     
+               <div class="form-group pad">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="Name" placeholder="Name" [(ngModel)]="obj.Name">
+                          </div>
+                          
+                     
+                       
+                       
+                    <div class="form-group pad">
+                            <label>Resource URL</label>
+                            <input type="text" class="form-control" name="url" placeholder="Resource URL" [(ngModel)]="obj.url">
+                          </div>
+                    
+                    <div class="form-group pad">
+                            
+                           <img class="img-fluid" src="http://13.55.59.91/uploads/{{obj.image}}"> 
+                           {{obj.file}}
+                        <label>Resource File</label>
+                       <app-file-upload (filename)="handle($event, 'file')"></app-file-upload>
+                        
+                       </div>
+                       
+            
+                       
+
+
+
+
+
+  <div class="form-group pad">
+    <label>Description</label>
+    
+      <div [(froalaModel)]="obj.Description" [froalaEditor]></div>
+  </div>
+     
+      <div class="form-group pad">
+    <button type="submit" class="btn orange btn-primary">Save</button>
+      </div>
+</form>
+            
+        <!--   <pre>{{product | json}}</pre>    -->       
+            
+             
+        
+      
+ </div></div></div>
+ 
+ <app-footer></app-footer>
+ 
+ </div>

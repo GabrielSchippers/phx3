@@ -1,0 +1,43 @@
+ <app-header></app-header>
+ 
+ <div class="container">
+     <div class="row">
+         <div class="col-md-3">
+             <app-dashboard-menu></app-dashboard-menu>
+         </div>
+         <div class="col-md-9">
+             <h3>Create Account</h3>
+            <form (ngSubmit)="createUser(user)">
+  <div class="form-group">
+    <label>First Name</label>
+    <input type="text" class="form-control" name="FirstName" placeholder="First Name" [(ngModel)]="user.FirstName">
+     
+  </div>
+ <div class="form-group">
+    <label>Last Name</label>
+    <input type="text" class="form-control" name="LastName" placeholder="Last Name" [(ngModel)]="user.LastName">
+  </div> 
+    
+   <div class="form-group">
+    <label>User Role</label>
+    <input type="text" class="form-control" name="UserRole" placeholder="User Role" [(ngModel)]="user.UserRole">
+  </div> 
+   <div class="form-group">
+    <label>Email</label>
+    <input type="email" class="form-control" name="Email" placeholder="Email" [(ngModel)]="user.Email">
+  </div> 
+   <div class="form-group">
+    <label>Password</label>
+    <input type="text" class="form-control" name="Password" placeholder="First Name" [(ngModel)]="user.Password">
+  </div> 
+   <button type="submit" class="btn orange btn-primary">Save</button>
+</form>
+            
+        <!--   <pre>{{user | json}}</pre>    -->       
+            
+             
+         </div>
+     </div>
+ </div>
+ 
+ <app-footer></app-footer>

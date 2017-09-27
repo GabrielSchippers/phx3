@@ -1,0 +1,30 @@
+
+<div style="margin: 4rem 0; " >
+<owl-carousel  class="hidden-md-down d-flex align-items-center"  [items]="resources" [options]="{items: 4, loop: true, center: true, touchDrag: true, stagePadding: 0, rtl: false, dots: true, nav: false, startPosition: 3, animateIn: true}" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+    
+    <div class="item"   *ngFor="let resource of resources ;  let i=index" >
+        <div class="cell">
+            <div  style="position: relative;" class="{{returnCat(resource.Category)}} cellCont ">
+                <div class="padded hoverBack">
+                  
+                <b>{{returnCat(resource.Category)}}</b>
+                <h3 [innerHtml]="resource.Name"></h3>
+                <div [innerHtml]="resource.Description"></div>
+                <a href="{{resource.url}}"><b>Download</b></a> 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    
+</owl-carousel>
+
+<div  class="hidden-lg-up">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let resource of resources" class="col-sm-6 "><div  class="padded orange">{{resource | json}}</div></div>
+        </div>
+    </div>
+</div>
+</div>

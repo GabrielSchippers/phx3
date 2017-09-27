@@ -1,0 +1,314 @@
+<app-loader *ngIf="loading"></app-loader>
+ <app-header></app-header>
+ 
+ <div class="container">
+    
+      <!--Note: There are separate product-feature sections for desktop and mobile (needed to facilitate the desktop layout) -->
+      
+      <!--three-column feature section for desktop-->
+      
+      <div class="row product-feature hidden-sm-down">
+        
+        <div id="scene6" class="product-flourish3"><img data-depth="0.5" src="http://13.55.59.91/assets/img/flourish-shop.png" /></div>
+        <div id="scene1" class="product-flourish4"><img data-depth="0.5" src="http://13.55.59.91/assets/img/flourish-dots.png" /></div>
+        
+        <div class="col-md-12">
+        
+          <div class="feature-block">
+        
+            <table class="feature-table">
+              <tr>
+                <td class="feature-table-showcase" rowspan="2">
+                  <div class="feature-table-showcase-content">Feature Product</div>
+                </td>
+                <td colspan="2" class="feature-table-headline">
+              	  <h1>Best Selling Products<br />Novel But Powerful and Effective</h1>
+                </td>
+              </tr>
+              <tr>
+                <td class="feature-table-new">
+                  <div class="feature-table-new-content">New Products</div>              
+                </td>
+                <td class="feature-table-promo">
+				  <div class="feature-table-promo-content">
+				    <div class="promo-content-title">Explain Pain 2nd Edition Book</div>
+				    <div class="promo-content-price">AUD $70.00 <b>$90.00</b></div>
+				  </div>
+                </td>
+              </tr>
+            </table>
+          
+         </div><!--/feature-block-->
+
+        </div><!--/col-->
+      </div><!--/product-feature-->
+      
+      
+      <!--stacked feature section for mobile-->
+      
+      <div class="row product-feature-mobile hidden-md-up">
+  
+        <div class="col-md-12">
+        
+        <h1>Best Selling Products<br />Novel But Powerful and Effective</h1>
+        
+          <div class="row">
+        
+			<div class="col-md-4">
+			Feature Product
+			</div>
+			
+			<div class="col-md-4">
+			New Products
+			</div>
+			
+			<div class="col-md-4">
+			Explain Pain
+            </div>
+            
+          </div>
+        
+        </div>
+        
+
+      </div><!--/product-feature-->      
+      
+      
+      
+      <div class="row product-language-filter-block">
+        <div class="col">
+        
+          <h1>Noi Products<br />
+          Finibus Bonorum</h1>
+          
+          <div class="product-language-filter">
+            Filter by: &nbsp;&nbsp;
+            <a href="#" class="active">En</a> &nbsp;&nbsp;| &nbsp;&nbsp;
+            <a href="#">Esp</a> &nbsp;&nbsp;| &nbsp;&nbsp;
+            <a href="#">NL</a> &nbsp;&nbsp;| &nbsp;&nbsp; 
+            <a href="#">Por</a>
+          </div>
+    
+       
+        </div>
+      </div><!--/product-language-filter-->
+      
+
+
+      
+      <div  class="row product-overview">
+      <div id="scene2" class="product-flourish6"><img data-depth="0.5" src="http://13.55.59.91/assets/img/flourish-halfcircle.png" /></div>  
+        <div class="col-md-6 product-overview-title">
+        
+          <h1>Explain Pain<br />
+          Go On - Train Those Synapses</h1>
+        
+        </div>
+        <div class="col-md-6 product-overview-text">
+		
+		  On its release the Explain Pain concept was considered ground-breaking
+		  and it is still proving to be a phenomenal force in the move to better
+		  understand, manage and prevent chronic pain. Explain Pain resources aim
+		  to give clinicians and people in pain the power to challenge pain and to
+		  consider new models for viewing what happens during pain. Once they have
+		  learnt about the processes involved they can follow a scientific route
+		  to recovery.
+       
+        </div>
+      </div><!--/product-overview-->
+      
+
+
+      <div class="row product-slate">
+      <div id="scene3" class="product-flourish1"><img data-depth="0.5" src="http://13.55.59.91/assets/img/flourish-circle.png" /></div>
+        <div class="col-md-8">
+        
+          <div *ngFor="let product of products | callback: filterPain" class="product-capsule">
+              
+            
+            <a [routerLink]="['/product/'+product.id]"><img src="{{product.images[0]}}" class="shadow" /></a>
+            <div class="product-capsule-title"><a [routerLink]="['/product/'+product._id]">{{product.name}}</a></div>
+            <div class="product-capsule-price">AUD {{product.skus.data[0].price  / 100 | currency:'AUD':true}}</div>
+          </div><!--/product-capsule-->
+
+         
+        
+        </div>
+        <div class="col-md-4">
+        
+          <img src="http://13.55.59.91/assets/img/product-splash2.jpg" class="product-slate-splash" />
+        
+        </div>
+      </div><!--/product-slate-->
+      
+  
+
+
+      <div class="row product-overview">
+        <div class="col-md-6 product-overview-title">
+        
+          <h1>Neurodynamics Fabulous Function for Physically Healthy Nerves</h1>
+        
+        </div>
+        <div class="col-md-6 product-overview-text">
+		
+		  On its release the Explain Pain concept was considered ground-breaking
+		  and it is still proving to be a phenomenal force in the move to better
+		  understand, manage and prevent chronic pain. Explain Pain resources aim
+		  to give clinicians and people in pain the power to challenge pain and to
+		  consider new models for viewing what happens during pain. Once they have
+		  learnt about the processes involved they can follow a scientific route
+		  to recovery.
+       
+        </div>
+      </div><!--/product-overview-->
+      
+
+
+      <div class="row product-slate">
+      <div id="scene4" class="product-flourish2"><img data-depth="0.5" src="http://13.55.59.91/assets/img/flourish-circle.png" /></div>  
+        <div class="col-md-4" style="z-index:50;">
+        
+          <img src="http://13.55.59.91/assets/img/product-splash1.jpg" class="product-slate-splash" />
+        
+        </div>
+        <div class="col-md-8">
+              <div *ngFor="let product of products | callback: filterNeuro" class="product-capsule">
+              
+            
+            <a [routerLink]="['/product/'+product.id]"><img src="{{product.images[0]}}" class="shadow" /></a>
+            <div class="product-capsule-title"><a [routerLink]="['/product/'+product._id]">{{product.name}}</a></div>
+            <div class="product-capsule-price">AUD {{product.skus.data[0].price  / 100 | currency:'AUD':true}}</div>
+          </div><!--/product-capsule-->       </div>
+      </div><!--/product-slate-->
+      
+  
+
+      <div class="row product-overview">
+        <div class="col-md-6 product-overview-title">
+        
+          <h1>Brain Training<br />
+          Go On - Train Those Synapses</h1>
+        
+        </div>
+        <div class="col-md-6 product-overview-text">
+		
+		  On its release the Explain Pain concept was considered ground-breaking
+		  and it is still proving to be a phenomenal force in the move to better
+		  understand, manage and prevent chronic pain. Explain Pain resources aim
+		  to give clinicians and people in pain the power to challenge pain and to
+		  consider new models for viewing what happens during pain. Once they have
+		  learnt about the processes involved they can follow a scientific route
+		  to recovery.
+       
+        </div>
+      </div><!--/product-overview-->
+      
+      
+
+      <div class="row product-slate">
+      <div id="scene5" class="product-flourish7"><img data-depth="0.5" src="http://13.55.59.91/assets/img/flourish-waves.png" /></div>  
+        <div class="col-md-8">
+             <div *ngFor="let product of products | callback: filterBrain" class="product-capsule">
+              
+            
+            <a [routerLink]="['/product/'+product.id]"><img src="{{product.images[0]}}" class="shadow" /></a>
+            <div class="product-capsule-title"><a [routerLink]="['/product/'+product._id]">{{product.name}}</a></div>
+            <div class="product-capsule-price">AUD {{product.skus.data[0].price  / 100 | currency:'AUD':true}}</div>
+          </div><!--/product-capsule-->
+        
+        </div>
+        <div class="col-md-4">
+        
+          <img src="http://13.55.59.91/assets/img/product-splash2.jpg" class="product-slate-splash" />
+        
+        </div>
+      </div><!--/product-slate-->
+
+
+
+      <div class="row product-overview">
+        <div class="col-md-3 offset-md-2 product-overview-title">
+        
+          <h1>Packs</h1>
+        
+        </div>
+        <div class="col-md-5 offset-md-1 product-overview-text">
+		
+		  On its release the Explain Pain concept was considered ground-breaking
+		  and it is still proving to be a phenomenal force in the move to better
+		  understand, manage and prevent chronic pain. Explain Pain resources aim
+		  to give clinicians and people in pain the power to challenge pain and to
+		  consider new models for viewing what happens during pain. Once they have
+		  learnt about the processes involved they can follow a scientific route
+		  to recovery.
+       
+        </div>
+      </div>
+      
+                
+
+      <div class="row product-slate product-slate-package">
+        <div class="col-md-12">
+ 
+ 		  <div class="product-package">
+            <div class="product-package-item1">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow" />
+            </div>
+            <div class="product-package-item2">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow" />
+            </div>
+            <div class="product-package-info">
+              <div class="product-package-title">Explain Pain Supercharged 1</div>
+              <div class="product-package-price">AUD $140</div>
+            </div>
+          </div><!--/product-package-->
+
+
+ 		  <div class="product-package">
+            <div class="product-package-item1">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow" />
+            </div>
+            <div class="product-package-item2">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow" />
+            </div>
+            <div class="product-package-info">
+              <div class="product-package-title">Explain Pain Supercharged 2</div>
+              <div class="product-package-price">AUD $140</div>
+            </div>
+          </div><!--/product-package-->
+
+ 		  <div class="product-package">
+            <div class="product-package-item1">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow"  />
+            </div>
+            <div class="product-package-item2">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow"  />
+            </div>
+            <div class="product-package-info">
+              <div class="product-package-title">Explain Pain Supercharged 3</div>
+              <div class="product-package-price">AUD $140</div>
+            </div>
+          </div><!--/product-package-->
+
+ 		  <div class="product-package">
+            <div class="product-package-item1">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow"  />
+            </div>
+            <div class="product-package-item2">
+              <img src="http://13.55.59.91/assets/img/product-placeholder-package.png" class="shadow"  />
+            </div>
+            <div class="product-package-info">
+              <div class="product-package-title">Explain Pain Supercharged 4</div>
+              <div class="product-package-price">AUD $140</div>
+            </div>
+          </div><!--/product-package-->
+
+        </div>
+
+      </div><!--/product-slate-->
+      
+
+  </div> <!-- /container -->   
+  
+  <app-footer></app-footer> 

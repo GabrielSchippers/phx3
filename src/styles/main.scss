@@ -1,0 +1,150 @@
+$red: #cf2e29;
+$orange: #e86a10;
+$blue: #3fa6cc;
+$green: #00a651;
+$purple: #892582;
+$teal: #298094;
+$black: #000000;
+
+.as-pagination-buttons{display: none !important;}
+ 
+.red{background-color: $red !important; color: white;}
+.orange{background-color: $orange !important; color: white;}
+.orange-color{color: $orange;}
+.blue{background-color: $blue !important; color: white;}
+.green{background-color: $green !important; color: white;}
+.purple{background-color: $purple !important; color: white;}
+.teal{background-color: $teal !important; color: white;}
+.black{background-color: $black !important; color: white;}
+.silver{background-color: #fafafa;}
+.silver-color{color: #acacac;}
+.yellow{background-color: #eaab00; color: white;}
+.char{background-color: #363636; color: white;}
+.lime{background-color: #acd373; color: white;}
+ 
+
+.owl-theme.sliding{ margin: 0 !important; text-align: center;}
+.cell{display: inline-block; text-align: left; cursor: pointer; }
+.cell .padded{ width: 20rem; }
+.padded{padding: 2rem;}
+ .cell:hover .hoverBack{background: rgba(0, 0, 0, 0.2);}
+ .hoverBack{transition: background 0.25s ease;}
+#leftpane{
+    position: absolute;
+    z-index: 2000;
+    left:-270px; top: 0;
+    height: 30px;
+    width: 600px;  
+   
+  
+    
+}
+
+#postContent *, #postContent{font-size: 16px!important;}
+#postContent img{ margin-bottom: 2rem; margin-top:2rem; width: 100%;}
+#postContent p, #postContent h3 {margin-bottom: 2rem;}
+#postContent ul{margin-top: 1rem; text-align: left;}
+#postContent .alignleft{float: left; margin-right: 1rem;}
+#postContent .alignright{float: right;}
+ 
+a, .page-link {color: $black;}
+a:hover{color: $orange; text-decoration: none;}
+
+.page-item.active .page-link {background-color: $orange; border: 0;}
+.pad{padding: 1rem;}
+
+#leftpane h5{font-size: 1rem; font-family: 'proxima_nova_rgbold'; color: white;}
+#socialpane{position: absolute;  top: 25rem; text-align: center; padding: 1.25rem; font-size: 1rem; z-index: 1000;}
+#socialpane p{margin-bottom: 1.5rem; color: white;}
+
+
+ .carousel-indicators{position: static; margin-top: 1rem;}
+ 
+.carousel-indicators .active{background-color: $orange;}
+.carousel-indicators li{background-color: #fafafa;}
+
+b{font-family:'proxima_nova_rgbold';}
+
+.rotate{
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    
+
+}
+
+.stat{height: 10rem;}
+
+ 
+
+.resource a{color: white; text-transform: uppercase; font-family:'proxima_nova_rgbold';}
+
+
+h1{font-size: 19px; text-transform: uppercase; line-height: 1.75rem; font-family: 'proxima_novaextrabold';}
+h3{font-weight: bold; font-size: 1rem;}
+h4{font-family:'proxima_novaextrabold'; text-transform: uppercase; font-size: 1rem;}
+
+
+section{background: none !important;}
+
+
+
+.con{background: #fafafa; padding: 2rem;}
+
+.block{margin-bottom: 5rem;}
+
+#breadcrumb{font-family: 'proxima_nova_rgbold' !important; margin-bottom: 4rem;}
+#breadcrumb .crumb{text-transform: uppercase;}
+
+.numset{font-family: 'proxima_novasemibold'; font-size: 0.75rem; padding:0; margin:0 0 1.5rem 0; list-style: none;}
+.numset li{display: inline-block; }
+.numset a{color: #b1b1b1;}
+.numset a.active{color: #e86a10; text-decoration: underline;}
+
+.numslides h2{color: #e5e5e5; font-family: 'proxima_novaextrabold'; font-size: 2.5rem;}
+.numslides b{font-family: 'proxima_nova_rgbold'; font-size: 11px;}
+.numslides p {font-family: 'proxima_nova_rgregular'; font-size: 11px;}
+ 
+.title{margin-bottom: 2rem;}
+.indent{padding: 0 2rem;}
+
+p.button{text-align: center; margin-top: 5rem; margin-bottom: 7rem;}
+.btn{border-radius: 0; border:0; text-transform: uppercase; letter-spacing: 0.5px;}
+.btn{padding: 1rem 3.5rem; font-family: 'proxima_nova_rgbold' !important; font-size: 0.75rem;}
+
+button.btn-sm{font-size: 10px !important; padding: 0.5rem 1.5rem; font-family: 'proxima_nova_rgbold' !important;}
+
+.btn-dash{width: 100%; padding: 0.5rem 0 !important;}
+.btn.img{font-size: 1rem; padding: 1rem;}
+.btn.arrow{padding:0.5rem 1rem 0.5rem 1rem; font-size: 1rem; margin:0; cursor: pointer;}
+
+.pane:hover .btn.hover{display: block !important;}
+.btn.hover{font-family: 'proxima_nova_rgbold'; position: absolute; display: none; width: 100%; right:0; bottom: 0; font-size: 9px;}
+
+
+.spaced{letter-spacing: 0.15rem;}
+.bor{color: $orange; font-family: 'proxima_nova_rgbold'}
+
+
+#menufix{margin-left: 4rem;}
+
+    h4{
+        font-size: 11px;
+        letter-spacing: 0.15rem;
+        font-family: 'proxima_nova_rgbold' !important; 
+        margin-bottom: 1rem;
+        
+    }
+    
+    .padded h4{text-align: center;}
+    
+
+
+.block{margin-bottom: 1rem;}
+
+.bx-wrapper { width: 100px; margin: 0 30px 0 0; border: none; box-shadow: none;}
+.bx-viewport { height: 60px!important;}
+
+
+
+

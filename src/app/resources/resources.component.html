@@ -1,0 +1,63 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+        <h1 style="text-align: center; margin-bottom: 1rem;">NOI RESOURCES<br>dolorem Malorum</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="offset-4 col-4">
+            <div class="form-group">
+                      
+                          <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+   
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Search Here">
+     <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+  </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
+
+ 
+ <app-resources-shift [resources]="shift"></app-resources-shift>
+ 
+  
+ <div class="container block">
+     <div class="row">
+         <div class="col-12">
+              <ul id="noi_menu" class="bor">
+                 <li><a [routerLink]="['/products']">See All</a></li>
+                 <li><a [routerLink]="['/courses']">Blogs</a></li>
+                 <li><a [routerLink]="['/resources']">Health Info</a></li>
+                 <li><a [routerLink]="['/courses/test']">Associations</a></li>
+                 <li><a [routerLink]="['/faculty']">Egraded Motor Imagery</a></li>
+                 <li><a [routerLink]="['/faculty-page']">Nuerological Damager</a></li>
+                 <li><a [routerLink]="['/blog']">Andom</a></li>
+                  
+             </ul>
+         </div>
+     </div>
+ </div>
+ 
+ <div class="container resources">
+     <div class="row">
+         
+         <div *ngFor="let resource of resources"  class="col-md-6 col-lg-3 ">
+             
+             <div class="padded char" style="height: 100%;">
+                <b>{{returnCat(resource.Category)}}</b>
+                <h3 [innerHtml]="resource.Name"></h3>
+                <div [innerHtml]="resource.Description"></div>
+                <a href="{{resource.url}}"><b>Download</b></a> 
+             </div>
+    
+    </div>
+         
+     </div>
+ </div>
+<app-footer></app-footer>

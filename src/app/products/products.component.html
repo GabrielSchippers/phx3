@@ -1,0 +1,33 @@
+ <app-header></app-header>
+ 
+ <div class="container">
+     <div class="row">
+            <div class="col-12 ">
+              <section>
+                  <h3>Products</h3>
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          
+                          <th>Name</th>
+                         <th>Product Code</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let product of products">
+                          <th scope="row">{{product.data.name}}</th>
+                          <td>{{product.data | json}}</td>
+                          
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+               </section>
+            </div>
+            <div style="text-align: center;" class="col-12">
+                <hr>
+               <ngb-pagination [collectionSize]="120"  [maxSize]="5" [boundaryLinks]="true"></ngb-pagination>
+
+            </div>
+     </div>
+ </div>

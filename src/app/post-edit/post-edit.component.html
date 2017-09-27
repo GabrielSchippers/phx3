@@ -1,0 +1,137 @@
+<app-loader *ngIf="loading"></app-loader>
+ <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+ <app-header></app-header>
+ 
+ <div class="container">
+     <div class="row">
+         
+         <div class="col-12">
+             <h3>Post Edit</h3>
+         </div>
+     </div>
+     
+            <form  (ngSubmit)="edit(obj)">
+                <div class="row">
+                <div class="col-sm-4 silver">
+                        <div class="form-group pad">
+                                        <label>Publish Date</label>
+                                        <div class="input-group">
+                                            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="obj.date" ngbDatepicker #sd="ngbDatepicker">
+                                            <button class="input-group-addon" (click)="sd.toggle()" type="button">
+                                               <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                  </div>
+                    </div>
+                </div>
+                    
+                <div class="row">
+                    <div class="col-sm-4 silver">
+                        <div class="form-group pad">
+                            <label>Status</label>
+                            <select class="form-control" name="Status" [(ngModel)]="obj.Status">
+                            <option [value]="1">Enabled</option>
+                            <option [value]="2">Disabled</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4 silver">
+                        <div class="form-group pad">
+                            <label>Category</label>
+                            <select class="form-control" name="Category" [(ngModel)]="obj.category[0].slug">
+                             <option value="uncategorized">Uncategorized</option>
+        
+           <option value="neurodynamics">Neurodynamics</option>
+        
+           <option value="stories-from-neuroanatomy">Stories from neuroanatomy</option>
+        
+           <option value="education-for-all">Education for All</option>
+        
+           <option value="science-and-the-world">Science and the World</option>
+        
+           <option value="lost-in-translation">Lost in Translation</option>
+        
+           <option value="philosophy-of-pain">Philosophy of pain</option>
+        
+           <option value="philosophy-of-mind">Philosophy of mind</option>
+        
+           <option value="noi-notes-2">Noi Notes</option>
+        
+           <option value="what-are-you-reading">What are you reading?</option>
+        
+           <option value="brain-and-pain">brain and pain</option>
+        
+           <option value="great-minds">Great Minds</option>
+        
+           <option value="physio-world">Physio World</option>
+        
+           <option value="graded-motor-imagery">Graded Motor Imagery</option>
+        
+           <option value="pain-awareness">Pain Awareness</option>
+        
+           <option value="metaphor-and-language">Metaphor and Language</option>
+        
+           <option value="patient-examples">Patient Examples</option>
+        
+           <option value="neuroscience-nuggets-2">Neuroscience Nuggets</option>
+        
+           <option value="the-cabbie-cortex">The Cabbie Cortex</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-4 silver">
+                         <div class="form-group pad">
+                            <label>Author</label>
+                            <app-user-type [userModel]="obj.author" (user)="handleEvent($event, 'author')"></app-user-type>
+                          </div>
+                    </div>
+                    
+                    
+                </div>
+                 
+                   <div class="form-group pad">
+                            
+                           <img class="img-fluid" src="{{obj.thumb}}"> 
+                           
+                        <label>Image</label>
+                       <app-file-upload (filename)="handle($event, 'image')"></app-file-upload>
+                        
+                       </div>
+                       
+                       
+  <div class="form-group pad">
+    <label>Title</label>
+    <input type="text" class="form-control" name="title" placeholder="Title" [(ngModel)]="obj.title">
+     
+  </div>
+  
+  <div class="form-group pad">
+                    <label>Excerpt</label>
+                      
+                     <div [(froalaModel)]="obj.excerpt" [froalaEditor]></div>
+                  </div> 
+                  
+                  
+    
+   <div class="form-group pad">
+                    <label>Content</label>
+                      
+                     <div [(froalaModel)]="obj.content" [froalaEditor]></div>
+                  </div> 
+    
+    <button type="submit" class="btn orange btn-primary">Save</button>
+</form>
+            
+        <!--   <pre>{{product | json}}</pre>    -->       
+            
+             
+        
+     
+ </div>
+ 
+ <app-footer></app-footer>
+ 
+ </div>

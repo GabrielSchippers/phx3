@@ -1,0 +1,103 @@
+<app-loader *ngIf="loading"></app-loader>
+ <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+ <app-header></app-header>
+ 
+ <div class="container">
+     <div class="row">
+        
+      
+             
+            
+            
+            <div class="col-12 ">
+              <section>
+                  <div class="row block d-flex align-items-center">
+                      <div class="col-sm-3"><h3>Courses</h3></div>
+                      <div class="col-sm-3"><button [routerLink]="['/dashboard/courses/create']">Create Course</button></div>
+                      <div class="col-sm-3"></div>
+                      <div class="col-sm-3"><form (ngSubmit)="search(1)"><input type="text" placeholder="Search" name="Search" [(ngModel)]="query" class="form-control form-control-sm"></form></div>
+                  </div>
+                  
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Code</th>
+                          <th>Language</th>
+                          <th>Start Date</th>
+                          <th>End Date</th>
+                          <th># Days</th>
+                          <th>Country</th>
+                          <th>City</th>
+                          <th>Instructor</th>
+                          <th>Host</th>
+                          <th>Status</th>
+                          
+                         <th>Actions</th>
+                          
+                        
+                        </tr>
+                      </thead>
+                     
+                          
+                          <tbody *ngFor="let course of courses  | callback: filterHost">
+                              
+                              
+                           <tr *ngFor="let event of course.events  | callback: filterHost">
+                          
+                           <td>{{DataService.courseName(course.courseType)}}</td>
+                          <td>{{course.CourseCode}}</td>
+                          <td> 
+                              <span *ngIf="course.English">EN,</span><span *ngIf="course.Italiano">IT</span><span *ngIf="course.Espanol">,ESL</span><span *ngIf="course.Deutsch">,UR</span><span *ngIf="course.Dansk">,DA</span>
+                          </td>
+                          <td>
+                              <span *ngIf="event.dates.length">{{event.dates[0].day}}/{{event.dates[0].month}}/{{event.dates[0].year}}</span>
+                          </td>
+                          <td>
+                              <span *ngIf="event.dates.length">{{event.dates[event.dates.length-1].day}}/{{event.dates[event.dates.length-1].month}}/{{event.dates[event.dates.length-1].year}}</span>
+                          </td>
+                          <td>
+                              <span *ngIf="course.dates.length">{{event.dates.length}}</span>
+                          </td>
+                          <td>
+                              {{event.country}}
+                          </td>
+                           <td>
+                              {{event.City}}
+                          </td>
+                          <td>
+                              <span *ngIf="event.instructor">{{event.instructor.FirstName}} {{event.instructor.LastName}}</span>
+                          </td>
+                           <td>
+                               <span *ngIf="event.host">{{event.host.FirstName}} {{event.host.LastName}}</span>
+                          </td>
+                           <td>
+                              {{DataService.status(course.Status)}}
+                          </td>
+                         
+                          
+                         
+ <td class="actions"><a [routerLink]="['/dashboard/courses/detail/'+course._id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                        </tr>
+                     
+                       
+                      </tbody>
+                    </table>
+               </section>
+            </div>
+            <div style="text-align: center;" class="col-12">
+                <hr>
+               <ngb-pagination [collectionSize]="collectionSize"  (pageChange)="loadPage($event)" [(page)]="page" [maxSize]="10" [pageSize]="pageSize"  [boundaryLinks]="true"></ngb-pagination>
+
+            </div>
+
+            
+            
+             
+         </div>
+     </div>
+ 
+ 
+ <app-footer></app-footer>
+ </div>

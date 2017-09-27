@@ -1,0 +1,90 @@
+  <div id="leftpane" class="rotate hidden-sm-down">
+    <h5>T (030) 300 63 300 </h5>
+</div>
+
+<div id="socialpane" class="hidden-sm-down">
+    <p><i class="fa fa-twitter" aria-hidden="true"></i></p>
+    <p><i class="fa fa-instagram" aria-hidden="true"></i></p>
+    <p><i class="fa fa-facebook" aria-hidden="true"></i></p>
+</div>
+
+<div style="background: url('http://13.55.59.91/assets/login-back.jpg'); 
+    background-size: cover;
+        position: absolute;
+            top:0;
+            bottom: 0;
+        
+            " class="col-sm-6 d-flex  align-items-center">
+                
+                <div style="position: absolute; left: -20rem; top: -20rem;" id="scene1">
+                 <img data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/elipse1.png">
+                </div>
+                 
+                <div class="col-sm-10 offset-sm-1">
+                    <h1 style="color: white; font-size: 1.5rem;" class="bor">We’d love to hear from<br> you! Send us a message<br> using the form opposite,<br> or email us.</h1>
+                    <p style="color:white; margin:2rem 0 1rem 0; font-size: 1rem;">Neuro Orthopaedic Institute<br>
+19 North Street, Adelaide City West<br>
+South Australia 5000 </p>
+
+                    <p style="color: white;">+61 (0)8 8211 6388<br>
+                    +61 (0)8 8211 8909
+                    </p>
+                                   </div>
+                
+            </div>
+
+
+<!-- class="d-flex align-items-center "> -->
+ 
+ 
+      
+            
+             
+                  <div class="col-md-6 d-flex justify-content-center align-items-center" style="background: white; position: absolute; top:0; bottom:0; right:0;">
+                    
+
+                    <div class="container">
+                      <div class="row">
+                      <div class="col-12">
+                          <div id="dots1"><img data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/dots1.png"></div>
+                                    <div id="scene2" style="position: absolute; bottom: -5rem; right: -8rem;  max-width: 15rem;"><img  data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/sqig.png"></div>
+                    
+                         <p style="margin: 2rem 0; font-size: 14px;">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit,</p>
+                         <div *ngIf="error" class="alert alert-danger" role="alert">
+                              <strong>Error!</strong>  {{error}}
+                         </div>
+                     
+                    <form (ngSubmit)="login()">
+                        <div class="form-group form-group-lg">
+                        <label for="formGroupExampleInput">Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="email" name="text" placeholder="Name">
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <label for="formGroupExampleInput">Email Address</label>
+                        <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="user@domain.com">
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <label for="formGroupExampleInput">Telephone</label>
+                        <input type="password" class="form-control" [(ngModel)]="password" name="text" placeholder="Telephone">
+                      </div>
+                      
+                      <div class="form-group">
+    <label for="exampleTextarea">Your Message</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+  </div>
+  
+                      <button [routerLink]="['/dashboard']" style="margin: 1rem 0;" class="btn btn-sm orange btn-primary">Send</button>
+                      
+                      
+                     
+                      
+                 
+                    </form>
+                    
+                      </div>
+                  </div>
+                    </div>
+
+ 
+ 
+ 

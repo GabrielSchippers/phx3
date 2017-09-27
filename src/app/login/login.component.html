@@ -1,0 +1,61 @@
+ <app-loader *ngIf="loading"></app-loader>
+<div style="background: url('http://13.55.59.91/assets/login-back.jpg'); 
+    background-size: cover;
+        position: absolute;
+            top:0;
+            bottom: 0;
+        
+            " class="col-sm-8 d-flex  align-items-center">
+                <div class="col-sm-10 offset-sm-1">
+                    <h1 style="color: white; font-size: 2rem;" class="bor">Knowledge driving health</h1>
+                    <p style="color:white; margin:2rem 0 1rem 0; font-size: 1rem;">Lorem ipsum dolor sit amet,consectetur adipiscing elit, ed do eiusmod tempor incididunt ut labore et dolore aliqua. </p>
+                    <a class="bor spaced" style="color:white; text-transform: uppercase;" href="#">Learn More</a>
+                </div>
+                
+            </div>
+
+
+<!-- class="d-flex align-items-center "> -->
+ 
+ 
+      
+            
+             
+                  <div class="offset-md-8 col-md-4 d-flex justify-content-center align-items-center" style="background: white; position: absolute; top:0; bottom:0; right:0;">
+                    
+
+                    
+                      <div class="row">
+                      <div class="col-12" style="text-align: center;">
+                         <h1 style="" >hello there<br>welcome to noigroup</h1>                      
+                    
+                         <p style="margin: 2rem 0; font-size: 14px;">Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit,</p>
+                         <div *ngIf="error" class="alert alert-danger" role="alert">
+                              <strong>Error!</strong>  {{error}}
+                         </div>
+                     
+                    <form (ngSubmit)="login()">
+                      <div class="form-group form-group-lg">
+                        <label for="formGroupExampleInput">Email Address</label>
+                        <input type="email" class="form-control" [(ngModel)]="email" name="email" placeholder="user@domain.com">
+                      </div>
+                      <div class="form-group form-group-lg">
+                        <label for="formGroupExampleInput">Password</label>
+                        <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Password">
+                      </div>
+                    
+                      <button type="submit" style="margin: 1rem 0;" class="btn btn-sm orange btn-primary">Login</button>
+                      <p>Forgot Password</p>
+                      
+                      <a [routerLink]="['/signup']"><h3 style="margin-top: 6rem; text-transform: uppercase;" class="spaced"><b>Signup Here <i style="color: #e86a10;" class="fa fa-arrow-right" aria-hidden="true"></i></b></h3></a>
+                      
+                      <p style="margin-top: 4rem;">&copy; 2017 NOI Group. All Rights Reserved</p>
+                    </form>
+                    
+                      </div>
+                  </div>
+         
+
+ 
+ 
+ 

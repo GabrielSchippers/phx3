@@ -1,0 +1,129 @@
+<app-loader *ngIf="loading"></app-loader>
+ <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+     <app-header></app-header>
+     
+    
+    <form (ngSubmit)="edit(obj)">
+           
+     <div class="container">
+         <div class="row">
+            <div class="col-12">
+                 <h3>Faculty Edit</h3>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-3">
+                <img class="img-fluid" src="http://13.55.59.91/uploads/{{obj.image}}"> 
+                <div class="form-group pad">
+                    <label>Image</label>
+                    <app-file-upload (filename)="handle($event, 'image')"></app-file-upload>
+                </div>
+            </div>
+                        
+            <div class="col-sm-9">  
+                <div class="row">
+                    <div class=" col-sm-6">
+                    <div class="form-group pad silver">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" name="FirstName" placeholder="First Name" [(ngModel)]="obj.FirstName">
+                    </div>
+                    </div>
+                    <div class=" col-sm-6">
+                    <div class="form-group pad silver">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" name="LastName" placeholder="Last Name" [(ngModel)]="obj.LastName">
+                    </div>
+                    </div>
+                     <div class=" col-sm-6">
+                           <div class="form-group pad">
+                    <label>Linked Account</label>
+                     <app-user-type [userModel]="obj.user" (user)="handle($event, 'user')"></app-user-type>
+                  </div>
+                     </div>
+                  
+                     <div class=" col-sm-6">
+                    <div class="form-group pad silver">
+                        <label>Title</label>
+                        <input type="text" class="form-control" name="Title" placeholder="Title" [(ngModel)]="obj.title">
+                    </div>
+                    </div>
+                    
+                      <div class=" col-sm-6">
+                     <div class="form-group pad">
+                    <label>Active</label>
+                    <select class="form-control" name="Active" [(ngModel)]="obj.Active">
+                        <option [value]="1">Active</option>
+                        <option [value]="2">Inactive</option>
+                    </select>
+                  </div>
+
+                    </div>
+                    
+                </div>
+                
+                <div class="row">
+                    <div class="col-12">
+                         <div class="form-group pad">
+                    <label>Accreditation / Post Nominal Titles</label>
+                    <div [(froalaModel)]="obj.Accreditation" [froalaEditor]></div>
+                </div> 
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6">
+                         <div class="form-group pad">
+                    <p><label><input [checked]="obj.English" (change)="obj.English = !obj.English" type="checkbox" value=""> English</label></p>
+                    <p><label><input [checked]="obj.Italiano" (change)="obj.Italiano = !obj.Italiano" type="checkbox" value=""> Italiano</label></p>
+                    <p><label><input [checked]="obj.Espanol" (change)="obj.Espanol = !obj.Espanol" type="checkbox" value=""> Español</label></p>
+                     
+                </div>
+                    </div>
+                    <div class="col-sm-6">
+                         <div class="form-group pad">
+                   
+                    <p><label><input [checked]="obj.Deutsch" (change)="obj.Deutsch = !obj.Deutsch" type="checkbox" value=""> Deutsch</label></p>
+                    <p><label><input [checked]="obj.Dansk" (change)="obj.Dansk = !obj.Dansk" type="checkbox" value=""> Dansk</label></p>
+                </div>
+                    </div>
+                </div>
+               
+                <div class="form-group pad">
+                    <label>Short Description</label>
+                    <div [(froalaModel)]="obj.ShortDescription" [froalaEditor]></div>
+                </div> 
+                
+            
+                <div class="form-group pad">
+                    <label>About Description</label>
+                    <div [(froalaModel)]="obj.Description" [froalaEditor]></div>
+                </div> 
+                
+                <div class="form-group pad">
+                    <label>Publications</label>
+                    <div [(froalaModel)]="obj.Publications" [froalaEditor]></div>
+                </div> 
+                
+                 <div class="form-group pad">
+                <button type="submit" class="btn orange btn-primary">Save</button>
+                 </div>
+            </div>
+    
+    
+    
+    </div>
+    
+    
+    
+                
+            <!--   <pre>{{product | json}}</pre>    -->       
+                
+                 
+          
+         </div>
+     
+     </form>
+     <app-footer></app-footer>
+ 
+ </div>

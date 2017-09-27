@@ -1,0 +1,306 @@
+#courses {
+  position: relative;
+  padding: 3rem 2rem 10rem 2rem;
+  font-family: "proxima_novaextrabold";
+}
+
+.tang1 {
+  background: #f26c4f;
+}
+.tang2 {
+  background: #f26522;
+}
+.tang3 {
+  background: #f7941d;
+}
+
+h1,
+.noijam {
+  text-transform: lowercase !important;
+}
+
+h5 {
+  display: inline-block;
+  background: silver;
+  color: white;
+  padding: 1rem;
+  text-transform: uppercase;
+  margin: 0;
+  font-family: "proxima_novaextrabold";
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  position: absolute;
+  min-width: 12rem;
+  text-align: center;
+
+  transform: rotate(-90deg) translate(0, -100%);
+  transform-origin: 100% 0;
+  right: 0rem;
+  top: 0;
+  z-index: 1000;
+}
+.zoom {
+  background-size: contain;
+  transition: all 1s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+.zoom .img {
+  -webkit-filter: grayscale(100%);
+  transition: all 0.25s ease;
+}
+
+.zoom:hover .img {
+  -webkit-filter: grayscale(0%);
+  -webkit-transform: scale(1.15);
+}
+
+#s {
+  font-size: 15rem;
+  color: #e86a10;
+  position: absolute;
+  top: -0rem;
+  right: -5.5rem;
+  z-index: 2000;
+  font-family: "proxima_novaextrabold";
+}
+
+#dots1 {
+  width: 7rem;
+  height: 7rem;
+  z-index: 2000;
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+}
+#dots2 {
+  width: 25rem;
+  z-index: 2000;
+  height: 9;
+  position: absolute;
+  bottom: 7rem;
+  left: 2rem;
+}
+#circle1 {
+  width: 20rem;
+  height: 20rem;
+  position: absolute;
+  right: -10rem;
+  top: -6rem;
+}
+
+.carousel-item {
+  min-height: 25rem;
+}
+.carousel {
+}
+
+#core {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-size: 5rem;
+  font-size: 25vw;
+  font-family: "proxima_novaextrabold";
+}
+
+b {
+  font-family: "proxima_nova_rgbold";
+}
+
+.container-fluid,
+.container {
+  font-size: 12px;
+}
+.noGutter div {
+  padding: 0;
+  margin: 0;
+}
+
+.number {
+  font-family: "proxima_novaextrabold";
+  color: #e5e5e5;
+  font-size: 7.75rem;
+}
+.noijam {
+  font-family: "proxima_novaextrabold";
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  position: relative;
+  top: -2.5rem;
+  left: 4rem;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+#products {
+  padding-bottom: 5rem;
+}
+.phase {
+  background-size: cover;
+  transition: all 0.1s ease-in-out;
+  overflow: hidden !important;
+}
+button {
+  margin-top: 1rem;
+}
+.paragraphs {
+  font-size: 12px;
+  padding-top: 5rem;
+}
+
+#noiresources {
+  margin-top: 5rem;
+}
+.resources {
+  text-align: center;
+}
+
+#twitter {
+  margin-bottom: 5rem;
+}
+
+.phase:hover {
+  background-color: #363636;
+  background-blend-mode: overlay;
+  z-index: 10000;
+}
+
+.phase img {
+  visibility: hidden;
+}
+.phase:hover img {
+  visibility: visible;
+}
+
+.phase p {
+  display: none;
+}
+.phase:hover p {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  color: white;
+}
+
+video {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.btncont {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+app-header {
+  display: block;
+  background: white;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  img {
+    height: 100%;
+  }
+}
+
+.sliding-hero {
+  position: relative;
+  height: 687px;
+}
+
+@mixin mask-container {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 100%;
+  top: 0;
+  z-index: 2;
+}
+
+.left-mask-container {
+  @include mask-container;
+  width: 50%;
+  left: 0;
+  padding: 80px 200px 0 80px;
+  h1 {
+    font-size: 30px;
+    color: #e75f00;
+  }
+}
+
+.floating-text {
+  color: black;
+  font-size: 16px;
+  position: absolute;
+  left: 80px;
+  bottom: 50px;
+  width: 300px;
+}
+
+.right-mask-container {
+  @include mask-container;
+  width: 25%;
+  right: 0;
+}
+
+.relative-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+a.btn.orange {
+  color: white;
+}
+
+.floating-text h1, p, a{
+  opacity: 1;
+}
+
+.sliding-hero .fullscreen_sliding{
+  opacity: 1;
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  margin-top: -74px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#course .numslides {
+  cursor: pointer;
+}

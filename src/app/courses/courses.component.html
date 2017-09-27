@@ -1,0 +1,98 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+
+<div class="container">
+    <h1 class="title">UPComing NOI COurses<br>
+Sed ut perspiciatis unde omnis</h1>
+</div>
+
+ <div id="courses" class="block">
+  
+      <div class="container">
+             <div class="indent">
+          <div id="dots1"><img data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/dots1.png"></div> 
+          <div id="dots2"><img data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/dots1.png"></div>            
+          <div class="row numslides">
+              
+            
+                     <div   *ngFor="let course of courses" class="col-md-4 pane">
+                      <p><b>{{DataService.courseName(course.courseType)}}</b></p> 
+                          <div style="position: relative;">
+            <button class="btn hover btn-xlsm orange btn-primary">Enquire</button>
+            <a [routerLink]="['/courses/'+course._id]"><img class="img-fluid" src="http://13.55.59.91/uploads/{{course.image}}"></a>  
+            
+            </div>
+                     </div>
+                     
+                            
+        
+      </div>
+ </div>
+ </div>
+ 
+ <div id="courses">
+      <div style="margin-bottom: 3rem;" class="container">
+         
+          <div class="row">
+              <div class="col-sm-6">
+                <h1 class="title">NOI COurses<br>Sed ut perspiciatis unde</h1>   
+              </div>
+              <div class="col-sm-6">
+                  <div class="row d-flex align-items-center">
+                      <div style="text-align: right;" class="col-sm-6">
+                        Filter By Region
+                      </div>
+                      <div class="col-sm-6">
+                        <select class="custom-select">
+ 
+  <option value="1">Australia (AUS)</option>
+ 
+</select>
+                      </div>
+                  </div>
+                  </div>
+          </div> 
+      </div>
+      
+      <div class="container">
+           <div class="indent">      
+          <div class="row numslides">
+                    
+                    
+                     <div   *ngFor="let course of courses" class="col-md-4 pane">
+                      <p><b>{{DataService.courseName(course.courseType)}}</b></p> 
+                          <div style="position: relative;">
+            <button class="btn hover btn-xlsm orange btn-primary">Enquire</button>
+            <a [routerLink]="['/courses/'+course._id]"><img class="img-fluid" src="http://13.55.59.91/uploads/{{course.image}}"></a>  
+            
+            </div>
+                     </div>
+                                           
+                     
+          </div>
+           </div>
+      </div>
+<div id="courses">
+      <div class="container">
+         <h1 class="title">NOI COurses<br>
+MEET THE INSTRUCTORS</h1>          
+          <div class="row numslides">
+              
+             
+                     <div *ngFor="let instructor of faculty" class="col-md-3">
+                          <a [routerLink]="['/faculty/'+instructor._id]"><img style="width: 100%;" class="img-fluid" src="http://13.55.59.91/uploads/{{instructor.image}}"></a>
+                         <h3>{{instructor.FirstName}} {{instructor.LastName}}</h3>
+                         <p style="text-align: center;"> <span *ngIf="instructor.English">EN,</span><span *ngIf="instructor.Italiano">IT</span><span *ngIf="instructor.Espanol">,ESL</span><span *ngIf="instructor.Deutsch">,UR</span><span *ngIf="instructor.Dansk">,DA</span></p>
+                     </div>
+                     
+                                    </div>
+
+        
+      <p class="button"><button [routerLink]="['/faculty/']" class="btn orange btn-primary">See All</button></p>
+      </div>
+ </div>
+
+      </div>
+
+
+<app-footer></app-footer>

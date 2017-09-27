@@ -1,0 +1,110 @@
+<app-loader *ngIf="loading"></app-loader>
+ <app-header></app-header>
+ 
+ <div class="container">
+
+     
+      <div class="row">
+        <div class="col">
+      
+          <ul class="breadcrumbs list-inline">
+            <li class="list-inline-item"><a href="#" target="_blank">Product</a></li>
+            <li class="list-inline-item breadcrumb-active"><span class="breadcrumb-divider"></span>{{obj.name}}</li>
+          </ul>
+        
+        </div>
+      </div>
+        
+        
+      <div class="row product-detail">
+        <div class="col-md-8">
+        
+		  <div class="row product-detail-summary">
+			<div class="col-md-3">
+          
+			  <div class="product-detail-image">
+			    <img src="{{obj?.images[0]}}" class="shadow" >
+			    <a href="#"><img src="http://13.55.59.91/assets/img/icon-eye.png" class="product-detail-view" ></a>
+			  </div>
+			  
+			
+			</div>
+			<div class="col-md-9 extra-padding-right">
+			
+			  <h1>{{obj.name}}</h1>
+			  
+			  <div class="product-detail-blurb">{{obj.caption}}</div>
+			  
+			  <div class="product-detail-audio">
+			   <!-- <img src="http://13.55.59.91/assets/img/icon-audio.png" > Audio Book -->
+			   
+			   </div>
+			  
+			  <div class="product-detail-qty">Quantity: <input [(ngModel)]="obj.qty"></div>
+			  
+			  <div class="product-detail-purchase">
+			   <a (click)="addToCart(obj)" class="btn btn-primary orange" style="color: white" role="button">Add to Cart</a>
+			   <span class="product-detail-purchase-message">BULK BUY & SAVE - <i>Save over 20%</i></span>
+			   </div>
+			
+			</div>
+		  </div>
+      
+          <div class="row product-detail-text extra-padding-right">
+            <div class="col">
+          
+          	  <h2>What's Great About It</h2>
+          	
+          	{{obj.description}}			
+			</div>
+  
+          </div>        
+      
+        </div>
+        <div class="col-md-4 product-detail-sidebar">
+        
+        <img src="http://13.55.59.91/assets/img/sidebar-ad.jpg" >
+        
+        </div>
+      </div><!--/product-detail row-->
+      
+      
+      
+      <div class="row product-detail-related-block">
+      <div class="flourish1"><img src="http://13.55.59.91/assets/img/flourish-halfcircle.png" ></div>
+        <div class="col-md-4 product-detail-related">
+        
+          <h1>Related Products<br >Go On - Train Those Synapses </h1>    
+        
+        </div>
+        <div class="col-md-8">
+          <div class="product-capsule">
+            <img src="http://13.55.59.91/assets/img/product-placeholder.png" class="shadow" >
+            <div class="product-capsule-title">Explain Pain Supercharged 1</div>
+            <div class="product-capsule-price">AUD $140</div>
+          </div><!--/product-capsule-->
+
+          <div class="product-capsule">
+            <img src="http://13.55.59.91/assets/img/product-placeholder.png" class="shadow" >
+            <div class="product-capsule-title">Explain Pain Supercharged 2</div>
+            <div class="product-capsule-price">AUD $140</div>
+          </div><!--/product-capsule-->
+          
+          <div class="product-capsule">
+            <img src="http://13.55.59.91/assets/img/product-placeholder.png" class="shadow" >
+            <div class="product-capsule-title">Explain Pain Supercharged 3</div>
+            <div class="product-capsule-price">AUD $140</div>
+          </div><!--/product-capsule-->
+          
+          <div class="product-capsule">
+            <img src="http://13.55.59.91/assets/img/product-placeholder.png" class="shadow" >
+            <div class="product-capsule-title">Explain Pain Supercharged 4</div>
+            <div class="product-capsule-price">AUD $140</div>
+          </div><!--/product-capsule-->
+        
+        </div>
+      </div>
+            
+  </div> <!-- /container -->    
+  
+  <app-footer></app-footer>

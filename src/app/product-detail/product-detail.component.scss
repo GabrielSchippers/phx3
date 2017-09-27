@@ -1,0 +1,77 @@
+/* PRODUCT DETAILS PAGE */
+
+
+.extra-padding-right {padding-right:0rem;}
+
+.flourish1 {position:absolute;top:-120px;right:-140px;display:block;}
+.flourish1 img {width:300px;display:none;}
+
+.product-detail {margin-bottom:3rem;}
+.product-detail-image {width:95%;text-align:center;}
+.product-detail-image img {display:block;width:100%;margin-bottom:2rem;}
+
+.product-detail-image .product-detail-view {display:block;margin:0px auto;margin-bottom:4rem;width:35px;}
+
+.product-detail-summary {padding-top:3rem;margin-bottom:5rem;}
+.product-detail-blurb {color:#666;margin-bottom:1.8rem;}
+
+.product-detail-audio {margin-top:1.25rem;margin-bottom:1.8rem;}
+.product-detail-audio img {width:35px;margin-right:0.8rem;}
+.product-detail-qty {margin-top:1.25rem;margin-bottom:1.8rem;font-size:1.2rem;}
+.product-detail-qty input {height:2.5rem;border-radius:13px;width:4.5rem;border:1px solid #666;text-align:center;color:#e86a10;margin-left:0.8rem;}
+
+.product-detail-purchase {margin-top:1.25rem;margin-bottom:1.25rem;}
+.product-detail-purchase button {margin-right:0.8rem;}
+.product-detail-purchase-message {padding-left:1rem;font-size:0.85rem;}
+
+.product-detail-sidebar img {width:100%;}
+.product-detail-additional {color:#ddd;font-style:normal;font-size:0.85rem;}
+
+
+
+/* PRODUCT SUMMARY CAPSULES */
+
+.product-capsule {width:9.5rem;display:inline-block;margin:0.7rem;margin-top:0px;margin-bottom:3rem;background: url("http://13.55.59.91/assets/img/bg-product.png") no-repeat;background-size:contain;}
+.product-capsule img {width:100%;display:block;margin:0px auto;margin-bottom:1.5rem;}
+.product-capsule-title {font-size:0.9rem;margin-bottom:1rem;text-align:left;}
+.product-capsule-price {font-size:0.8rem;text-align:left;font-weight:bold;}
+
+
+
+.product-detail-related-block {position:relative;text-align:center;}
+.product-detail-related {padding-top:4rem;}
+
+
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+.product-detail-related-block {text-align:left;}
+.flourish1 img {display:block;}
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+.extra-padding-right {padding-right:5rem;}
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+
+}
+
+
+

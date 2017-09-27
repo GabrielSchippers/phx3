@@ -1,0 +1,9 @@
+ 
+.dropdown-menu {border: 0; border-radius: 0px; box-shadow: 1px 2px 7px #a8a8a8; }
+#noi_menu{font-family: 'proxima_nova_rgbold'; margin:0; padding:0; list-style: none; margin-top: 1.75rem; letter-spacing: 0.5px; }
+#noi_menu li{display: inline-block; margin-right: 1.75rem;}
+#noi_menu a{text-transform: uppercase; color: #000000; font-size: 11px;}
+#noi_menu a:hover{color: #e86a10; text-decoration: none;}
+a:hover{color: #e86a10;}
+#noi_menu.mobile li{display: block; text-align: right;
+}

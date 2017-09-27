@@ -1,0 +1,14 @@
+<ng-template #rt let-r="result" let-t="term">
+  
+  {{r.FirstName}} {{r.LastName}} <{{r.Email}}>
+</ng-template>
+
+
+           <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+  <input id="typeahead-http" type="text" class="form-control" [resultTemplate]="rt" [class.is-invalid]="searchFailed" [editable]="false" [(ngModel)]="userModel" (selectItem)="selected($event)" [inputFormatter]="formatter" [ngbTypeahead]="search" placeholder="Search" />
+           </div>
+           
+  <span *ngIf="searching">searching...</span>
+  <div class="invalid-feedback" *ngIf="searchFailed">Sorry, suggestions could not be loaded.</div>
+  

@@ -1,0 +1,16 @@
+#root{font-family: 'proxima_nova_rgregular'; font-size: 11px; background: #fafafa;}
+#menubtn{position: absolute; top: 1rem; right: 1rem; cursor: pointer; z-index: 2000;}
+
+.menu{transition: width 0.25s ease-out;  background: white; color: black; height: 100%; width:0; position: fixed; top:0; bottom:0; overflow: hidden;}
+.menu ul{list-style: none; padding:1rem; margin:0; text-transform: uppercase; font-weight: bold;}
+
+.menu.open{background: black; color: white; width: 100%;}
+
+section{background: #efefef; padding: 1rem; margin-bottom: 1px; }
+.searchbox{position: relative; top: -0.5rem; float: right;}
+ 
+
+a{color: black; border-radius: 4px; padding: 0.5rem;}
+a:hover{color: white; background: black; }
+
+

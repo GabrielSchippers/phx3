@@ -1,0 +1,98 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+<div *ngIf="course" id="breadcrumb" class="container">
+    <div class="row">
+        <div class=" col-sm-6 d-flex align-items-center">Courses&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bor">{{DataService.courseName(course.courseType)}}</span></div>
+        <div class="crumb col-sm-6 d-flex align-items-center justify-content-end">8th Jul 2017,&nbsp;<span class="bor">2 days left to</span>   <button style="margin-left: 1rem;" class="btn btn-sm orange btn-primary">Enquire</button></div>
+    </div>
+</div>
+
+<div *ngIf="course" class="container">
+    <div class="row block">
+        <div class="col-sm-4">
+            <div id="dots2"><img class="img-fluid" src="http://13.55.59.91/assets/dots2.png"></div>
+            <div class="courseimg"><img class="img-fluid" src="http://13.55.59.91/uploads/{{course.image}}"></div></div>
+        <div class="col-sm-5">
+            <h1>{{DataService.courseName(course.courseType)}}</h1>
+            <!-- <p class="bor">Mobilise - to prepare, to awaken and to move.</p> -->
+            <p>{{course.City}}, {{course.country}}, <span class="bor">{{course.instructor.FirstName}} {{course.instructor.LastName}}</span></p>
+           
+           <div [innerHtml]="course.Description"></div>
+           
+            </div>
+        <div class="col-sm-3">
+            <div style="padding: 1.5rem; border-top: 1px solid black; border-bottom: 1px solid black;">
+            <h2 class="bor">This course is<br> open to:</h2>
+            <p [innerHtml]="course.openTo"> </p>
+            </div>
+            <div style="padding: 1.5rem;">
+                <h4>about NOI instructor<br>MEET THE INSTRUCTOR</h4>
+                
+               
+                <div>
+                    
+                  
+                    <img style="width: 50px; float: left; margin: 0 1rem 1rem 0;" class="img-fluid" src="http://13.55.59.91/uploads/{{course.instructor.image}}">
+                    <p><b>{{course.instructor.FirstName}} {{course.instructor.LastName}}</b><br>
+                    East Asia Pacific</p>
+
+<span class="oran">Languages:</span>  <span *ngIf="course.instructor.English">EN,</span><span *ngIf="course.instructor.Italiano">IT</span><span *ngIf="course.instructor.Espanol">,ESL</span><span *ngIf="course.instructor.Deutsch">,UR</span><span *ngIf="course.instructor.Dansk">,DA</span><br>
+
+<p [innerHtml]="course.instructor.Description"></p>
+                </div>
+                 
+            </div>
+           <!-- <div style="padding: 1.5rem; border-top: 1px solid black;">
+                     <h4>course note</h4>
+                     <ul>
+                         <li><span>Estimated Course Length: 90 minutes</span></li>
+                     </ul>
+                         
+                 </div> -->
+        </div>
+    </div>
+    
+    
+    <h1>Pre-requisites:<br>
+Sed ut perspiciatis unde </h1>
+<p style="margin-bottom: 4rem;">To enhance your course outcomes, the following pre-reading is strongly recommended:</p>
+      <div class="indent" [innerHtml]="course.PreRequisites">      
+               </div>
+                
+               
+</div>
+
+<!-- 
+<div class="container">
+    <div class="indent">
+        <div class="indent">
+     <h2 style="margin-top: 8rem; margin-bottom: 3rem;" class="bor">INSTRUCTOR Upcoming courses,<br>
+start date:</h2>
+<div class="row numslides">
+                     <div class="col-md-4">
+                         
+                         <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> 
+    <img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg">
+                     </div>
+                     <div class="col-md-4">
+                       
+                         <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> 
+    <img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg">
+                     </div>
+                     <div class="col-md-4">
+                       
+                         <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> 
+    <img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg">
+                     </div>
+                </div>
+
+</div>
+    </div>
+    
+</div>
+-->
+
+<app-footer></app-footer>

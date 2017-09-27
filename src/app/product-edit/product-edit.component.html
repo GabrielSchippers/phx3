@@ -1,0 +1,134 @@
+<app-loader *ngIf="loading"></app-loader>
+  <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+ <app-header></app-header>
+ 
+ <div class="container">
+     <div class="row">
+         
+        
+             <h3>Product Edit</h3>
+            <form (ngSubmit)="edit(obj)">
+                
+                <div class="row">
+                    
+                    <div class="col-sm-8">
+                        <div class="form-group pad">
+                            
+                           <img class="img-fluid" src="http://13.55.59.91/uploads/{{obj.image}}"> 
+                           
+                        <label>Image</label>
+                       <app-file-upload (filename)="handle($event, 'image')"></app-file-upload>
+                        
+                       </div>
+                       
+                        <div class="form-group pad">
+                            <label>Name</label>
+                            <input type="text" class="form-control" name="Name" placeholder="Name" [(ngModel)]="obj.Name">
+                          </div>
+                          
+                          <div class="form-group pad">
+                    <label>Caption</label>
+                     <textarea placeholder="Caption" style="height: 5rem;" name="Caption" [(ngModel)]="obj.Caption" class="form-control"></textarea>
+                  </div> 
+                  
+                  <div class="form-group pad">
+                    <label>Description</label>
+                      
+                     <div [(froalaModel)]="obj.Description" [froalaEditor]></div>
+                  </div> 
+                  
+                  
+                   <div class="form-group pad">
+                     
+                    <label>Digital Download</label>
+                    <p>{{obj.download}}</p>
+                      <app-file-upload (filename)="handle($event, 'download')"></app-file-upload>               
+                     </div>
+                  
+                  
+                    </div>
+                     <div class="col-sm-4 silver">
+                          <div class="form-group pad">
+                    <label>Status</label>
+                    <select class="form-control" name="Status" [(ngModel)]="obj.Status">
+                        <option [value]="1">Enabled</option>
+                        <option [value]="2">Disabled</option>
+                    </select>
+                  </div>
+                  
+                  
+                  
+                  <div class="form-group pad">
+                    <label>Shippable?</label>
+                    <select class="form-control" name="Status" [(ngModel)]="obj.Shippable">
+                        <option [value]="1">Yes</option>
+                        <option [value]="2">No</option>
+                    </select>
+                  </div>
+
+
+
+                  
+                         <div class="form-group pad">
+    <label>SKU</label>
+    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-barcode" aria-hidden="true"></i></span>
+    <input type="text" class="form-control" name="LastName" placeholder="SKU" [(ngModel)]="obj.ProductCode"></div>
+  </div> 
+    
+   <div class="form-group pad">
+    <label>Price</label>
+    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-usd" aria-hidden="true"></i></span>
+    <input type="text" class="form-control" name="UnitPrice" placeholder="Unit Price" [(ngModel)]="obj.UnitPrice">
+    </div>
+  </div> 
+  
+   <div class="form-group pad">
+    <label>Depth</label>
+    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
+    <input type="number" class="form-control" name="Length" placeholder="0" [(ngModel)]="obj.Length"></div>
+  </div> 
+  
+  <div class="form-group pad">
+    <label>Width</label>
+    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-arrows-h" aria-hidden="true"></i></span>
+    <input type="number" class="form-control" name="Width" placeholder="0" [(ngModel)]="obj.Width"></div>
+  </div> 
+  
+  <div class="form-group pad">
+    <label>Height</label>
+    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-arrows-v" aria-hidden="true"></i></span>
+    <input type="number" class="form-control" name="Depth" placeholder="0" [(ngModel)]="obj.Height"></div>
+  </div> 
+  
+  
+   <div class="form-group pad">
+                            <label>Qty on Hand</label>
+                            <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-cubes" aria-hidden="true"></i></span>
+                            <input type="number" class="form-control" name="qty" placeholder="0" [(ngModel)]="obj.qty"></div>
+                          </div>
+                     </div>
+                </div>
+                
+  
+ 
+    
+    <button type="submit" class="btn orange btn-primary">Save</button>
+</form>
+            
+        <!--   <pre>{{product | json}}</pre>    -->       
+            
+             
+         </div>
+     </div>
+ 
+ 
+ <app-footer></app-footer>
+ 
+ </div>

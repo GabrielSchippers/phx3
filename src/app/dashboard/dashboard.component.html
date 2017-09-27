@@ -1,0 +1,82 @@
+ <app-loader *ngIf="loading"></app-loader>
+ <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+ <app-header></app-header>
+
+ <div class="container">
+     <div class="row">
+          
+         <div class="col-12">
+             
+             <div class="row block">
+                 <div class="col-lg-4">
+                   
+                     <h4>CURRENT ENQUIRY</h4>
+                     <p><b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+                         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+        <p><b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+                         Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque </p>
+                 </div>
+                 <div class="col-lg-8">
+                         <div class="con">
+                         <div class="row">
+                             <div class="col-md-6">
+                                 <h4>Review your order</h4>
+                                 
+                                   <p>SHIPPING: AUD ${{totals?.shipping?.amount}}</p>
+                                   <p>Tax: AUD ${{totals?.tax?.amount}}</p>
+                                   <p>TOTAL: AUD ${{totals?.total}}</p>
+                                 
+                                 
+                             </div>
+                             <div class="col-md-6">
+                                 <button [routerLink]="['/checkout']" class="btn black btn-primary">Checkout</button>
+                             </div>
+                         </div>
+                        </div>
+                 </div>
+             </div><!-- end row -->
+             
+             <div class="row block">
+                 <div class="col-lg-4 block">
+                     <h4>Noi Notes</h4>
+                     <div class="con">So which hurts more – childbirth or getting kicked in the balls? We have the answer.</div>
+                     <button class="btn btn-sm orange btn-dash btn-primary">see more</button>
+                     </div>
+                 <div class="col-lg-4 block"><h4>Noi Likes</h4>
+                  <div class="con">So which hurts more – childbirth or getting kicked in the balls? We have the answer.</div>
+                     <button class="btn btn-sm black btn-dash btn-primary">see more</button>
+                 </div>
+                 
+                 <div class="col-lg-4"><h4>Promotional Videos</h4>
+                  
+                 </div>
+             </div><!-- end row -->
+             
+             <div style="margin-top: 2rem; margin-bottom: 2rem;" class="row block">
+                 <div class="col-12 "> <h4>Downloads</h4></div>
+                 <div class="col-12">  <b>FILTER BY:&nbsp;</b>    <span class="orange-color">ALL</span><span class="silver-color">   /   EBOOKS   /   AUDIO BOOKS   /   SURVEY PROMPTS   /   CERTIFICATES</span></div>
+                
+             </div>
+             <div class="row block">
+                 <div *ngFor="let download of downloads" class="col-lg-4 ">
+                     <div class="silver padded ">
+                     {{download.download}}
+                     <!-- 
+                     <p style="text-align: center;"><img class="img-fluid" style="max-width: 3rem;" src="http://13.55.59.91/assets/cert.png"></p>
+                     <b>EXPLAIN PAIN 10th Jun 2017</b>
+                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                     <h4>Download file</h4> -->
+                     
+                     <h4><a href="http://13.55.59.91:8080/download/{{download._id}}">Download file</a></h4>
+                     
+                     </div> 
+                </div>
+
+             </div>    
+         </div>
+     </div>
+ </div>
+ 
+ <app-footer></app-footer>
+ </div>

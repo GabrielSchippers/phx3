@@ -1,0 +1,177 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-12"><h1 style="margin-bottom: 2rem;" >RECENTLY On <span class="orange-color">NOIjam</span></h1></div>
+    </div><!-- end row -->
+    <div class="row">
+        
+        
+        <div *ngFor="let post of recent | slice:0:4;" style="margin-bottom: 1rem;" class="col-sm-6 blog-article">
+        
+       <a [routerLink]="['/blog/'+post.slug]"><div style="height: 300px; background-size: cover;" [style.background-image]="safeUrl(post.thumb)"></div>   </a>
+            
+            <p style="margin-top:1rem;"><a  [routerLink]="['/blog/'+post.slug]"><b [innerHtml]="post.title"></b></a></p>
+            <p [innerHtml]="post.excerpt"></p> 
+             <a  [routerLink]="['/blog/'+post.slug]"><img  class="img-fluid" style="width: 3rem; margin-right: 0.5rem; float: left;" src="{{post.author.thumb}}"></a>
+           <p><b>{{post.author.FirstName}} {{post.author.LastName}}</b><br><span class="blogdate">{{post.date.month}}/{{post.date.day}}/{{post.date.year}}</span></p>  
+         
+        </div>
+        
+        
+    </div><!-- end row -->
+</div>
+
+<div style="margin: 2rem 0;">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+          
+                <div class="row">
+                    <div class="col-8">
+                     <form  (ngSubmit)="search(1)">
+                      <div class="form-group">
+                          <label>Search Blog</label>
+                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                            <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                            <input type="text" class="form-control" name="query" [(ngModel)]="query" id="inlineFormInputGroup" placeholder="Search">
+                          </div>
+                      </div> 
+                       </form>                   
+            
+                    </div>
+                    <div class="col-4">
+                      <div class="form-group">
+                       <label>Choose a Category</label>
+                        <select (change)="search(1)" [(ngModel)]="cat" name="cat" style="width: 100%;" class="custom-select">
+           
+            
+            <option value="uncategorized">Uncategorized</option>
+        
+           <option value="neurodynamics">Neurodynamics</option>
+        
+           <option value="stories-from-neuroanatomy">Stories from neuroanatomy</option>
+        
+           <option value="education-for-all">Education for All</option>
+        
+           <option value="science-and-the-world">Science and the World</option>
+        
+           <option value="lost-in-translation">Lost in Translation</option>
+        
+           <option value="philosophy-of-pain">Philosophy of pain</option>
+        
+           <option value="philosophy-of-mind">Philosophy of mind</option>
+        
+           <option value="noi-notes-2">Noi Notes</option>
+        
+           <option value="what-are-you-reading">What are you reading?</option>
+        
+           <option value="brain-and-pain">brain and pain</option>
+        
+           <option value="great-minds">Great Minds</option>
+        
+           <option value="physio-world">Physio World</option>
+        
+           <option value="graded-motor-imagery">Graded Motor Imagery</option>
+        
+           <option value="pain-awareness">Pain Awareness</option>
+        
+           <option value="metaphor-and-language">Metaphor and Language</option>
+        
+           <option value="patient-examples">Patient Examples</option>
+        
+           <option value="neuroscience-nuggets-2">Neuroscience Nuggets</option>
+        
+           <option value="the-cabbie-cortex">The Cabbie Cortex</option>
+        
+ 
+                          
+                        </select>                     
+                    </div>
+                    
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="container blog">
+    <div class="row">
+        <div class="col-12"><h1 style="margin-bottom: 2rem;" >POPULAR In <span class="orange-color">NOIjam</span></h1></div>
+    </div><!-- end row -->
+    
+    <div class="indent">
+        <div class="row">
+            <div class="col-12">
+               
+                    <div style="min-height: 18rem;" class="row ">
+                        
+                        <div *ngFor="let post of posts | slice:min:max;"  style="margin-bottom: 3rem;" class="col-lg-6">
+                            <div class="row">
+                                <div style="background-size: cover;" [style.background-image]="safeUrl(post.thumb)" class="col-6"></div>
+                                <div class="col-6">
+                                    
+                                     
+                                    <p ><a  [routerLink]="['/blog/'+post.slug]"><b [innerHtml]="post.title"></b></a></p>
+                                    <p [innerHtml]="post.excerpt"></p>                      
+                                   
+                                    
+                                      <img  class="img-fluid" style="width: 3rem; margin-right: 0.5rem; float: left;" src="{{post.author.thumb}}">
+                                    <p><b>{{post.author.FirstName}} {{post.author.LastName}}</b><br><span class="blogdate">{{post.date.month}}/{{post.date.day}}/{{post.date.year}}</span></p> 
+                                </div>
+                            </div>
+                        </div>
+                         
+                    </div>      
+                    
+                            
+                    
+                           
+            </div>
+        </div>
+    </div>
+    
+      <p class="button"><button (click)="sliceUp()" class="btn orange btn-primary">Load More</button></p>
+      
+</div>
+
+
+
+
+<div style="display: none;" class="container">
+     
+     <h2 style="margin-top: 8rem; font-size: 1.25rem; text-transform: uppercase; margin-bottom: 3rem;" class="bor">Upcoming courses,<br>
+start date:</h2>
+
+<div class="indent">
+    <div class="indent">
+        
+<div class="row numslides">
+                     <div class="col-md-4">
+                         
+                         <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> 
+    <img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg">
+                     </div>
+                     <div class="col-md-4">
+                       
+                         <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> 
+    <img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg">
+                     </div>
+                     <div class="col-md-4">
+                       
+                         <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p> 
+    <img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg">
+                     </div>
+                </div>
+
+    </div>
+</div>
+    
+</div>
+
+
+<app-footer></app-footer>

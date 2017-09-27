@@ -1,0 +1,949 @@
+<app-loader *ngIf="loading"></app-loader>
+  <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+ <app-header></app-header>
+ 
+ <div class="container">
+     <div class="row">
+       
+         <div class="col-12">
+             <h3>Course Edit</h3>
+            <form (ngSubmit)="edit(obj)" >
+                
+                <div class="row">
+                    <div class="col-sm-4 silver">
+                <div class="form-group pad">
+                    <label>Status</label>
+                    <select class="form-control" name="Status" [(ngModel)]="obj.Status">
+                        <option [value]="1">Draft</option>
+                        <option [value]="2">Published</option>
+                    </select>
+                  </div>
+                    </div>
+               
+                    <div class="col-sm-4 silver">
+                  <div class="form-group pad">
+                    <label>Approved?</label>
+                    <select class="form-control" name="Status" [(ngModel)]="obj.Approved">
+                        <option [value]="1">Approved</option>
+                        <option [value]="2">Unapproved</option>
+                    </select>
+                  </div>
+                    </div>
+                    
+                 
+                
+                  <div class="col-sm-4 silver">
+                  <div class="form-group pad">
+                    <label>Course Type</label>
+                    <select class="form-control" name="Status" [(ngModel)]="obj.courseType">
+                        <option [value]="1">Explain Pain</option>
+                        <option [value]="2">Graded Motor Imagery</option>
+                        <option [value]="3">Clinical Applications: Lower limb and lumbar spine</option>
+                        <option [value]="4">Neurodynamics and the Neuromatrix</option>
+                        <option [value]="5">Mobilisation of the Neuroimmune System</option>
+                        <option [value]="6">Clinical Applications: Upper limb, thorax and neck</option>
+                        <option [value]="7">Sensitive Nervous System</option>
+                        <option [value]="8">The Problem Patient</option>
+                        <option [value]="9">Current Concepts in Pain Science</option>
+                        <option [value]="10">Pain, Plasticity and Rehabilitation</option>
+                        <option [value]="11">Clinical Applications of Neurodynamics: ‘Peripheral’ Neuropathic Expressions</option>
+                        <option [value]="12">Schmerzen Verstehen</option>
+                        <option [value]="13">Mobilisation des Nervensystems </option>
+                        <option [value]="14">Klinische Anwendungen: Untere Extremität und LWS</option>
+                        <option [value]="15">Klinische Anwendungen: Obere Extremität, Thorax und HWS</option>
+                        <option [value]="16">Das Sensitive Nervensystem</option>
+                        <option [value]="17">Graduierte Motorische Vorstellung</option>
+                        <option [value]="18">Interaktionen mit Problematischen (Schmerz)- Patienten</option>
+                        <option [value]="19">Movilización del Sistema Nervioso</option>
+                        <option [value]="20">Explicando el Dolor</option>
+                        <option [value]="21">Neurodynamics y la Neuromatrix</option>
+                        <option [value]="22">Mobilizzazione del Sistema Nervoso</option>
+                        <option [value]="23">Applicazione Clinica: Arto Inferiore</option>
+                        <option [value]="24">Spiegare Dolore</option>
+                        <option [value]="25">Explicando a Dor</option>
+                        <option [value]="26">Mobilizacao do Sistema Nervoso</option>
+                       
+                    </select>
+                  </div>
+                    </div>
+
+                     <div class="col-sm-4 silver">
+                      <div class="form-group pad">
+                        <label>Course Code</label>
+                        <input type="text" class="form-control" name="CourseCode" placeholder="Course Code" [(ngModel)]="obj.CourseCode">
+                      </div>
+                    </div>
+                    
+                    <div class="col-sm-4 silver">
+                            <div class="form-group pad">
+                            <p><label><input [checked]="obj.English" (change)="obj.English = !obj.English" type="checkbox" value=""> English</label></p>
+                            <p><label><input [checked]="obj.Italiano" (change)="obj.Italiano = !obj.Italiano" type="checkbox" value=""> Italiano</label></p>
+                            <p><label><input [checked]="obj.Espanol" (change)="obj.Espanol = !obj.Espanol" type="checkbox" value=""> Español</label></p>
+                            </div>
+                        </div>
+                        
+                       <div class="col-sm-4 silver">
+                        <div class="form-group pad">
+                           <p><label><input [checked]="obj.Deutsch" (change)="obj.Deutsch = !obj.Deutsch" type="checkbox" value=""> Deutsch</label></p>
+                            <p><label><input [checked]="obj.Dansk" (change)="obj.Dansk = !obj.Dansk" type="checkbox" value=""> Dansk</label></p>
+                        </div>
+                       </div>
+                        
+                    
+                </div>
+
+                
+             
+                  
+                 
+                 
+                 <div class="row">
+                     <div class="col-sm-6">
+                        <div class="form-group pad">
+                        <label>Course Image</label>
+                        <p><img *ngIf="obj.image" class="img-fluid" src="http://13.55.59.91/uploads/{{obj.image}}"></p>
+                           
+
+                       <app-file-upload (filename)="handle($event, 'image')"></app-file-upload>
+                        
+                       </div>
+                     </div>
+                  
+                   
+                     <div class="col-sm-6">
+                       <div class="form-group pad">
+                          <label>PDF Details</label>
+                          <p>{{obj.flyer}}</p>
+                          <app-file-upload (filename)="handle($event, 'flyer')"></app-file-upload>
+                      </div>
+                     </div>
+                     
+                 </div>
+                 <div class="row">  
+                     <div class="col-sm-6">
+                         <div class="form-group pad">
+                            <label>PreRequisites</label>
+                            <div [(froalaModel)]="obj.PreRequisites" [froalaEditor]></div>
+                        </div>
+                          <div class="form-group pad">
+                    <label>Open To</label>
+                     <div [(froalaModel)]="obj.openTo" [froalaEditor]></div>
+                  </div>
+
+                     </div>    
+                     <div class="col-sm-6">
+                         <div class="form-group pad">
+                    <label>Description</label>
+                     <div [(froalaModel)]="obj.Description" [froalaEditor]></div>
+                  </div> 
+                     </div>             
+                 </div>
+                   
+                   
+                   <ngb-tabset>
+  <ngb-tab title="Create Event">
+    <ng-template ngbTabContent>
+      <div class="row silver">
+                      <div class="col-4">
+                          <div class="form-group pad">
+                            <label>Host</label>
+                            <app-user-type [userModel]="event.host" (user)="handleEvent($event, 'host')"></app-user-type>
+                          </div>
+                          
+                           <div class="form-group pad">
+                    <label>Instructor</label>
+                     <app-user-type [userModel]="event.instructor" (user)="handleEvent($event, 'instructor')"></app-user-type>
+                  </div>
+                  
+                           <div class="form-group pad">
+                    <label>Max Class Size</label>
+                    <input type="number" class="form-control" name="ClassSize" placeholder="0" [(ngModel)]="event.ClassSize">
+                  </div>
+                   <div class="form-group pad">
+                    <label>Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">$</span>
+                    <input type="number" class="form-control" name="ClassSize" placeholder="0" [(ngModel)]="event.Cost">
+                    </div>
+                  </div>
+                      </div>
+                      <div class="col-8">
+                          <div class="form-group pad">
+                            <label>Venue</label>
+                            <input type="text" class="form-control" name="Venue" placeholder="Venue" [(ngModel)]="event.Venue">
+                          </div>
+                          <div class="form-group pad">
+                            <label>Location</label>
+                            <input type="text" class="form-control" name="Location" placeholder="Location" [(ngModel)]="event.Location">
+                          </div>
+                           <div class="form-group pad">
+                    <label>Country</label>
+                    <select class="form-control" name="country" [(ngModel)]="event.country">
+	<option value="AF">Afghanistan</option>
+	<option value="AX">Åland Islands</option>
+	<option value="AL">Albania</option>
+	<option value="DZ">Algeria</option>
+	<option value="AS">American Samoa</option>
+	<option value="AD">Andorra</option>
+	<option value="AO">Angola</option>
+	<option value="AI">Anguilla</option>
+	<option value="AQ">Antarctica</option>
+	<option value="AG">Antigua and Barbuda</option>
+	<option value="AR">Argentina</option>
+	<option value="AM">Armenia</option>
+	<option value="AW">Aruba</option>
+	<option value="AU">Australia</option>
+	<option value="AT">Austria</option>
+	<option value="AZ">Azerbaijan</option>
+	<option value="BS">Bahamas</option>
+	<option value="BH">Bahrain</option>
+	<option value="BD">Bangladesh</option>
+	<option value="BB">Barbados</option>
+	<option value="BY">Belarus</option>
+	<option value="BE">Belgium</option>
+	<option value="BZ">Belize</option>
+	<option value="BJ">Benin</option>
+	<option value="BM">Bermuda</option>
+	<option value="BT">Bhutan</option>
+	<option value="BO">Bolivia, Plurinational State of</option>
+	<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+	<option value="BA">Bosnia and Herzegovina</option>
+	<option value="BW">Botswana</option>
+	<option value="BV">Bouvet Island</option>
+	<option value="BR">Brazil</option>
+	<option value="IO">British Indian Ocean Territory</option>
+	<option value="BN">Brunei Darussalam</option>
+	<option value="BG">Bulgaria</option>
+	<option value="BF">Burkina Faso</option>
+	<option value="BI">Burundi</option>
+	<option value="KH">Cambodia</option>
+	<option value="CM">Cameroon</option>
+	<option value="CA">Canada</option>
+	<option value="CV">Cape Verde</option>
+	<option value="KY">Cayman Islands</option>
+	<option value="CF">Central African Republic</option>
+	<option value="TD">Chad</option>
+	<option value="CL">Chile</option>
+	<option value="CN">China</option>
+	<option value="CX">Christmas Island</option>
+	<option value="CC">Cocos (Keeling) Islands</option>
+	<option value="CO">Colombia</option>
+	<option value="KM">Comoros</option>
+	<option value="CG">Congo</option>
+	<option value="CD">Congo, the Democratic Republic of the</option>
+	<option value="CK">Cook Islands</option>
+	<option value="CR">Costa Rica</option>
+	<option value="CI">Côte d'Ivoire</option>
+	<option value="HR">Croatia</option>
+	<option value="CU">Cuba</option>
+	<option value="CW">Curaçao</option>
+	<option value="CY">Cyprus</option>
+	<option value="CZ">Czech Republic</option>
+	<option value="DK">Denmark</option>
+	<option value="DJ">Djibouti</option>
+	<option value="DM">Dominica</option>
+	<option value="DO">Dominican Republic</option>
+	<option value="EC">Ecuador</option>
+	<option value="EG">Egypt</option>
+	<option value="SV">El Salvador</option>
+	<option value="GQ">Equatorial Guinea</option>
+	<option value="ER">Eritrea</option>
+	<option value="EE">Estonia</option>
+	<option value="ET">Ethiopia</option>
+	<option value="FK">Falkland Islands (Malvinas)</option>
+	<option value="FO">Faroe Islands</option>
+	<option value="FJ">Fiji</option>
+	<option value="FI">Finland</option>
+	<option value="FR">France</option>
+	<option value="GF">French Guiana</option>
+	<option value="PF">French Polynesia</option>
+	<option value="TF">French Southern Territories</option>
+	<option value="GA">Gabon</option>
+	<option value="GM">Gambia</option>
+	<option value="GE">Georgia</option>
+	<option value="DE">Germany</option>
+	<option value="GH">Ghana</option>
+	<option value="GI">Gibraltar</option>
+	<option value="GR">Greece</option>
+	<option value="GL">Greenland</option>
+	<option value="GD">Grenada</option>
+	<option value="GP">Guadeloupe</option>
+	<option value="GU">Guam</option>
+	<option value="GT">Guatemala</option>
+	<option value="GG">Guernsey</option>
+	<option value="GN">Guinea</option>
+	<option value="GW">Guinea-Bissau</option>
+	<option value="GY">Guyana</option>
+	<option value="HT">Haiti</option>
+	<option value="HM">Heard Island and McDonald Islands</option>
+	<option value="VA">Holy See (Vatican City State)</option>
+	<option value="HN">Honduras</option>
+	<option value="HK">Hong Kong</option>
+	<option value="HU">Hungary</option>
+	<option value="IS">Iceland</option>
+	<option value="IN">India</option>
+	<option value="ID">Indonesia</option>
+	<option value="IR">Iran, Islamic Republic of</option>
+	<option value="IQ">Iraq</option>
+	<option value="IE">Ireland</option>
+	<option value="IM">Isle of Man</option>
+	<option value="IL">Israel</option>
+	<option value="IT">Italy</option>
+	<option value="JM">Jamaica</option>
+	<option value="JP">Japan</option>
+	<option value="JE">Jersey</option>
+	<option value="JO">Jordan</option>
+	<option value="KZ">Kazakhstan</option>
+	<option value="KE">Kenya</option>
+	<option value="KI">Kiribati</option>
+	<option value="KP">Korea, Democratic People's Republic of</option>
+	<option value="KR">Korea, Republic of</option>
+	<option value="KW">Kuwait</option>
+	<option value="KG">Kyrgyzstan</option>
+	<option value="LA">Lao People's Democratic Republic</option>
+	<option value="LV">Latvia</option>
+	<option value="LB">Lebanon</option>
+	<option value="LS">Lesotho</option>
+	<option value="LR">Liberia</option>
+	<option value="LY">Libya</option>
+	<option value="LI">Liechtenstein</option>
+	<option value="LT">Lithuania</option>
+	<option value="LU">Luxembourg</option>
+	<option value="MO">Macao</option>
+	<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+	<option value="MG">Madagascar</option>
+	<option value="MW">Malawi</option>
+	<option value="MY">Malaysia</option>
+	<option value="MV">Maldives</option>
+	<option value="ML">Mali</option>
+	<option value="MT">Malta</option>
+	<option value="MH">Marshall Islands</option>
+	<option value="MQ">Martinique</option>
+	<option value="MR">Mauritania</option>
+	<option value="MU">Mauritius</option>
+	<option value="YT">Mayotte</option>
+	<option value="MX">Mexico</option>
+	<option value="FM">Micronesia, Federated States of</option>
+	<option value="MD">Moldova, Republic of</option>
+	<option value="MC">Monaco</option>
+	<option value="MN">Mongolia</option>
+	<option value="ME">Montenegro</option>
+	<option value="MS">Montserrat</option>
+	<option value="MA">Morocco</option>
+	<option value="MZ">Mozambique</option>
+	<option value="MM">Myanmar</option>
+	<option value="NA">Namibia</option>
+	<option value="NR">Nauru</option>
+	<option value="NP">Nepal</option>
+	<option value="NL">Netherlands</option>
+	<option value="NC">New Caledonia</option>
+	<option value="NZ">New Zealand</option>
+	<option value="NI">Nicaragua</option>
+	<option value="NE">Niger</option>
+	<option value="NG">Nigeria</option>
+	<option value="NU">Niue</option>
+	<option value="NF">Norfolk Island</option>
+	<option value="MP">Northern Mariana Islands</option>
+	<option value="NO">Norway</option>
+	<option value="OM">Oman</option>
+	<option value="PK">Pakistan</option>
+	<option value="PW">Palau</option>
+	<option value="PS">Palestinian Territory, Occupied</option>
+	<option value="PA">Panama</option>
+	<option value="PG">Papua New Guinea</option>
+	<option value="PY">Paraguay</option>
+	<option value="PE">Peru</option>
+	<option value="PH">Philippines</option>
+	<option value="PN">Pitcairn</option>
+	<option value="PL">Poland</option>
+	<option value="PT">Portugal</option>
+	<option value="PR">Puerto Rico</option>
+	<option value="QA">Qatar</option>
+	<option value="RE">Réunion</option>
+	<option value="RO">Romania</option>
+	<option value="RU">Russian Federation</option>
+	<option value="RW">Rwanda</option>
+	<option value="BL">Saint Barthélemy</option>
+	<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+	<option value="KN">Saint Kitts and Nevis</option>
+	<option value="LC">Saint Lucia</option>
+	<option value="MF">Saint Martin (French part)</option>
+	<option value="PM">Saint Pierre and Miquelon</option>
+	<option value="VC">Saint Vincent and the Grenadines</option>
+	<option value="WS">Samoa</option>
+	<option value="SM">San Marino</option>
+	<option value="ST">Sao Tome and Principe</option>
+	<option value="SA">Saudi Arabia</option>
+	<option value="SN">Senegal</option>
+	<option value="RS">Serbia</option>
+	<option value="SC">Seychelles</option>
+	<option value="SL">Sierra Leone</option>
+	<option value="SG">Singapore</option>
+	<option value="SX">Sint Maarten (Dutch part)</option>
+	<option value="SK">Slovakia</option>
+	<option value="SI">Slovenia</option>
+	<option value="SB">Solomon Islands</option>
+	<option value="SO">Somalia</option>
+	<option value="ZA">South Africa</option>
+	<option value="GS">South Georgia and the South Sandwich Islands</option>
+	<option value="SS">South Sudan</option>
+	<option value="ES">Spain</option>
+	<option value="LK">Sri Lanka</option>
+	<option value="SD">Sudan</option>
+	<option value="SR">Suriname</option>
+	<option value="SJ">Svalbard and Jan Mayen</option>
+	<option value="SZ">Swaziland</option>
+	<option value="SE">Sweden</option>
+	<option value="CH">Switzerland</option>
+	<option value="SY">Syrian Arab Republic</option>
+	<option value="TW">Taiwan, Province of China</option>
+	<option value="TJ">Tajikistan</option>
+	<option value="TZ">Tanzania, United Republic of</option>
+	<option value="TH">Thailand</option>
+	<option value="TL">Timor-Leste</option>
+	<option value="TG">Togo</option>
+	<option value="TK">Tokelau</option>
+	<option value="TO">Tonga</option>
+	<option value="TT">Trinidad and Tobago</option>
+	<option value="TN">Tunisia</option>
+	<option value="TR">Turkey</option>
+	<option value="TM">Turkmenistan</option>
+	<option value="TC">Turks and Caicos Islands</option>
+	<option value="TV">Tuvalu</option>
+	<option value="UG">Uganda</option>
+	<option value="UA">Ukraine</option>
+	<option value="AE">United Arab Emirates</option>
+	<option value="GB">United Kingdom</option>
+	<option value="US">United States</option>
+	<option value="UM">United States Minor Outlying Islands</option>
+	<option value="UY">Uruguay</option>
+	<option value="UZ">Uzbekistan</option>
+	<option value="VU">Vanuatu</option>
+	<option value="VE">Venezuela, Bolivarian Republic of</option>
+	<option value="VN">Viet Nam</option>
+	<option value="VG">Virgin Islands, British</option>
+	<option value="VI">Virgin Islands, U.S.</option>
+	<option value="WF">Wallis and Futuna</option>
+	<option value="EH">Western Sahara</option>
+	<option value="YE">Yemen</option>
+	<option value="ZM">Zambia</option>
+	<option value="ZW">Zimbabwe</option>
+</select>
+                   
+                  </div> 
+
+                         
+                         <div class="row">
+                             <div class="col-sm-6">
+                                
+                                  <div class="form-group pad">
+                                        <label>Dates</label>
+                                         <table class="table">
+                                          <thead>
+                                            <tr>
+                                             
+                                              <th>Date</th>
+                                              
+                                              <th>Remove</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr *ngFor="let date of event.dates; let i = index">
+                                             
+                                              <td>{{date.month}}/{{date.day}}/{{date.year}}</td>
+                                              
+                                              <td><i (click)="removeDate(event,i)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                            </tr>
+                                            
+                                          </tbody>
+                                        </table>
+                                        
+                                  </div>
+                            </div>
+                            <div class="col-sm-6">
+                                
+                                  <div class="form-group pad">
+                                        <label>Add Date</label>
+                                        <div class="input-group">
+                                            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="selectedDate" ngbDatepicker #ed="ngbDatepicker">
+                                            <button class="input-group-addon" (click)="ed.toggle()" type="button">
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <button type="button" style="margin-top: 1rem;" (click)="addDate(event, selectedDate)" class="btn btn-sm btn-primary orange">Add Date</button>
+                                  </div>
+                                  
+                            </div>
+
+                            <div class="col-12"><div style="text-align: right;"><button type="button" (click)="addEvent(event)" class="btn orange btn-primary">Add Event to List</button></div></div>
+  
+                      </div>
+ 
+                      
+
+                      </div>
+                      
+                  
+                      
+                  </div>
+
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="List All Events">
+    <ng-template ngbTabContent>
+     
+     
+     
+     <ngb-accordion [closeOthers]="true"  #acc="ngbAccordion">
+         <ngb-panel *ngFor="let eventB of obj.events; let i = index">
+            <ng-template ngbPanelTitle>
+              <span *ngIf="eventB.dates[0]">{{eventB.dates[0].month}}/{{eventB.dates[0].day}}/{{eventB.dates[0].year}} </span> - <span *ngIf="eventB.host">{{eventB.host.FirstName}} {{eventB.host.LastName}}</span> - <span *ngIf="eventB.instructor">{{eventB.instructor.FirstName}} {{eventB.instructor.LastName}}</span>
+            </ng-template>
+            <ng-template ngbPanelContent>
+           
+             <div class="row silver">
+                      <div class="col-4">
+                          <div class="form-group pad">
+                            <label>Host</label>
+                            <app-user-type [userModel]="eventB.host" (user)="handleEventB(eventB, $event, 'host')"></app-user-type>
+                          </div>
+                          
+                           <div class="form-group pad">
+                    <label>Instructor</label>
+                     <app-user-type [userModel]="eventB.instructor" (user)="handleEventB(eventB, $event, 'instructor')"></app-user-type>
+                  </div>
+                  
+                           <div class="form-group pad">
+                    <label>Max Class Size</label>
+                    <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" placeholder="0" [(ngModel)]="eventB.ClassSize">
+                  </div>
+                   <div class="form-group pad">
+                    <label>Cost</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">$</span>
+                    <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" placeholder="0" [(ngModel)]="eventB.Cost">
+                    </div>
+                  </div>
+                      </div>
+                      <div class="col-8">
+                          <div class="form-group pad">
+                            <label>Venue</label>
+                            <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" placeholder="Venue" [(ngModel)]="eventB.Venue">
+                          </div>
+                          <div class="form-group pad">
+                            <label>Location</label>
+                            <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" placeholder="Location" [(ngModel)]="eventB.Location">
+                          </div>
+                          
+                          <div class="form-group pad">
+                    <label>Country</label>
+                    <select class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="eventB.country">
+	<option value="AF">Afghanistan</option>
+	<option value="AX">Åland Islands</option>
+	<option value="AL">Albania</option>
+	<option value="DZ">Algeria</option>
+	<option value="AS">American Samoa</option>
+	<option value="AD">Andorra</option>
+	<option value="AO">Angola</option>
+	<option value="AI">Anguilla</option>
+	<option value="AQ">Antarctica</option>
+	<option value="AG">Antigua and Barbuda</option>
+	<option value="AR">Argentina</option>
+	<option value="AM">Armenia</option>
+	<option value="AW">Aruba</option>
+	<option value="AU">Australia</option>
+	<option value="AT">Austria</option>
+	<option value="AZ">Azerbaijan</option>
+	<option value="BS">Bahamas</option>
+	<option value="BH">Bahrain</option>
+	<option value="BD">Bangladesh</option>
+	<option value="BB">Barbados</option>
+	<option value="BY">Belarus</option>
+	<option value="BE">Belgium</option>
+	<option value="BZ">Belize</option>
+	<option value="BJ">Benin</option>
+	<option value="BM">Bermuda</option>
+	<option value="BT">Bhutan</option>
+	<option value="BO">Bolivia, Plurinational State of</option>
+	<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+	<option value="BA">Bosnia and Herzegovina</option>
+	<option value="BW">Botswana</option>
+	<option value="BV">Bouvet Island</option>
+	<option value="BR">Brazil</option>
+	<option value="IO">British Indian Ocean Territory</option>
+	<option value="BN">Brunei Darussalam</option>
+	<option value="BG">Bulgaria</option>
+	<option value="BF">Burkina Faso</option>
+	<option value="BI">Burundi</option>
+	<option value="KH">Cambodia</option>
+	<option value="CM">Cameroon</option>
+	<option value="CA">Canada</option>
+	<option value="CV">Cape Verde</option>
+	<option value="KY">Cayman Islands</option>
+	<option value="CF">Central African Republic</option>
+	<option value="TD">Chad</option>
+	<option value="CL">Chile</option>
+	<option value="CN">China</option>
+	<option value="CX">Christmas Island</option>
+	<option value="CC">Cocos (Keeling) Islands</option>
+	<option value="CO">Colombia</option>
+	<option value="KM">Comoros</option>
+	<option value="CG">Congo</option>
+	<option value="CD">Congo, the Democratic Republic of the</option>
+	<option value="CK">Cook Islands</option>
+	<option value="CR">Costa Rica</option>
+	<option value="CI">Côte d'Ivoire</option>
+	<option value="HR">Croatia</option>
+	<option value="CU">Cuba</option>
+	<option value="CW">Curaçao</option>
+	<option value="CY">Cyprus</option>
+	<option value="CZ">Czech Republic</option>
+	<option value="DK">Denmark</option>
+	<option value="DJ">Djibouti</option>
+	<option value="DM">Dominica</option>
+	<option value="DO">Dominican Republic</option>
+	<option value="EC">Ecuador</option>
+	<option value="EG">Egypt</option>
+	<option value="SV">El Salvador</option>
+	<option value="GQ">Equatorial Guinea</option>
+	<option value="ER">Eritrea</option>
+	<option value="EE">Estonia</option>
+	<option value="ET">Ethiopia</option>
+	<option value="FK">Falkland Islands (Malvinas)</option>
+	<option value="FO">Faroe Islands</option>
+	<option value="FJ">Fiji</option>
+	<option value="FI">Finland</option>
+	<option value="FR">France</option>
+	<option value="GF">French Guiana</option>
+	<option value="PF">French Polynesia</option>
+	<option value="TF">French Southern Territories</option>
+	<option value="GA">Gabon</option>
+	<option value="GM">Gambia</option>
+	<option value="GE">Georgia</option>
+	<option value="DE">Germany</option>
+	<option value="GH">Ghana</option>
+	<option value="GI">Gibraltar</option>
+	<option value="GR">Greece</option>
+	<option value="GL">Greenland</option>
+	<option value="GD">Grenada</option>
+	<option value="GP">Guadeloupe</option>
+	<option value="GU">Guam</option>
+	<option value="GT">Guatemala</option>
+	<option value="GG">Guernsey</option>
+	<option value="GN">Guinea</option>
+	<option value="GW">Guinea-Bissau</option>
+	<option value="GY">Guyana</option>
+	<option value="HT">Haiti</option>
+	<option value="HM">Heard Island and McDonald Islands</option>
+	<option value="VA">Holy See (Vatican City State)</option>
+	<option value="HN">Honduras</option>
+	<option value="HK">Hong Kong</option>
+	<option value="HU">Hungary</option>
+	<option value="IS">Iceland</option>
+	<option value="IN">India</option>
+	<option value="ID">Indonesia</option>
+	<option value="IR">Iran, Islamic Republic of</option>
+	<option value="IQ">Iraq</option>
+	<option value="IE">Ireland</option>
+	<option value="IM">Isle of Man</option>
+	<option value="IL">Israel</option>
+	<option value="IT">Italy</option>
+	<option value="JM">Jamaica</option>
+	<option value="JP">Japan</option>
+	<option value="JE">Jersey</option>
+	<option value="JO">Jordan</option>
+	<option value="KZ">Kazakhstan</option>
+	<option value="KE">Kenya</option>
+	<option value="KI">Kiribati</option>
+	<option value="KP">Korea, Democratic People's Republic of</option>
+	<option value="KR">Korea, Republic of</option>
+	<option value="KW">Kuwait</option>
+	<option value="KG">Kyrgyzstan</option>
+	<option value="LA">Lao People's Democratic Republic</option>
+	<option value="LV">Latvia</option>
+	<option value="LB">Lebanon</option>
+	<option value="LS">Lesotho</option>
+	<option value="LR">Liberia</option>
+	<option value="LY">Libya</option>
+	<option value="LI">Liechtenstein</option>
+	<option value="LT">Lithuania</option>
+	<option value="LU">Luxembourg</option>
+	<option value="MO">Macao</option>
+	<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+	<option value="MG">Madagascar</option>
+	<option value="MW">Malawi</option>
+	<option value="MY">Malaysia</option>
+	<option value="MV">Maldives</option>
+	<option value="ML">Mali</option>
+	<option value="MT">Malta</option>
+	<option value="MH">Marshall Islands</option>
+	<option value="MQ">Martinique</option>
+	<option value="MR">Mauritania</option>
+	<option value="MU">Mauritius</option>
+	<option value="YT">Mayotte</option>
+	<option value="MX">Mexico</option>
+	<option value="FM">Micronesia, Federated States of</option>
+	<option value="MD">Moldova, Republic of</option>
+	<option value="MC">Monaco</option>
+	<option value="MN">Mongolia</option>
+	<option value="ME">Montenegro</option>
+	<option value="MS">Montserrat</option>
+	<option value="MA">Morocco</option>
+	<option value="MZ">Mozambique</option>
+	<option value="MM">Myanmar</option>
+	<option value="NA">Namibia</option>
+	<option value="NR">Nauru</option>
+	<option value="NP">Nepal</option>
+	<option value="NL">Netherlands</option>
+	<option value="NC">New Caledonia</option>
+	<option value="NZ">New Zealand</option>
+	<option value="NI">Nicaragua</option>
+	<option value="NE">Niger</option>
+	<option value="NG">Nigeria</option>
+	<option value="NU">Niue</option>
+	<option value="NF">Norfolk Island</option>
+	<option value="MP">Northern Mariana Islands</option>
+	<option value="NO">Norway</option>
+	<option value="OM">Oman</option>
+	<option value="PK">Pakistan</option>
+	<option value="PW">Palau</option>
+	<option value="PS">Palestinian Territory, Occupied</option>
+	<option value="PA">Panama</option>
+	<option value="PG">Papua New Guinea</option>
+	<option value="PY">Paraguay</option>
+	<option value="PE">Peru</option>
+	<option value="PH">Philippines</option>
+	<option value="PN">Pitcairn</option>
+	<option value="PL">Poland</option>
+	<option value="PT">Portugal</option>
+	<option value="PR">Puerto Rico</option>
+	<option value="QA">Qatar</option>
+	<option value="RE">Réunion</option>
+	<option value="RO">Romania</option>
+	<option value="RU">Russian Federation</option>
+	<option value="RW">Rwanda</option>
+	<option value="BL">Saint Barthélemy</option>
+	<option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+	<option value="KN">Saint Kitts and Nevis</option>
+	<option value="LC">Saint Lucia</option>
+	<option value="MF">Saint Martin (French part)</option>
+	<option value="PM">Saint Pierre and Miquelon</option>
+	<option value="VC">Saint Vincent and the Grenadines</option>
+	<option value="WS">Samoa</option>
+	<option value="SM">San Marino</option>
+	<option value="ST">Sao Tome and Principe</option>
+	<option value="SA">Saudi Arabia</option>
+	<option value="SN">Senegal</option>
+	<option value="RS">Serbia</option>
+	<option value="SC">Seychelles</option>
+	<option value="SL">Sierra Leone</option>
+	<option value="SG">Singapore</option>
+	<option value="SX">Sint Maarten (Dutch part)</option>
+	<option value="SK">Slovakia</option>
+	<option value="SI">Slovenia</option>
+	<option value="SB">Solomon Islands</option>
+	<option value="SO">Somalia</option>
+	<option value="ZA">South Africa</option>
+	<option value="GS">South Georgia and the South Sandwich Islands</option>
+	<option value="SS">South Sudan</option>
+	<option value="ES">Spain</option>
+	<option value="LK">Sri Lanka</option>
+	<option value="SD">Sudan</option>
+	<option value="SR">Suriname</option>
+	<option value="SJ">Svalbard and Jan Mayen</option>
+	<option value="SZ">Swaziland</option>
+	<option value="SE">Sweden</option>
+	<option value="CH">Switzerland</option>
+	<option value="SY">Syrian Arab Republic</option>
+	<option value="TW">Taiwan, Province of China</option>
+	<option value="TJ">Tajikistan</option>
+	<option value="TZ">Tanzania, United Republic of</option>
+	<option value="TH">Thailand</option>
+	<option value="TL">Timor-Leste</option>
+	<option value="TG">Togo</option>
+	<option value="TK">Tokelau</option>
+	<option value="TO">Tonga</option>
+	<option value="TT">Trinidad and Tobago</option>
+	<option value="TN">Tunisia</option>
+	<option value="TR">Turkey</option>
+	<option value="TM">Turkmenistan</option>
+	<option value="TC">Turks and Caicos Islands</option>
+	<option value="TV">Tuvalu</option>
+	<option value="UG">Uganda</option>
+	<option value="UA">Ukraine</option>
+	<option value="AE">United Arab Emirates</option>
+	<option value="GB">United Kingdom</option>
+	<option value="US">United States</option>
+	<option value="UM">United States Minor Outlying Islands</option>
+	<option value="UY">Uruguay</option>
+	<option value="UZ">Uzbekistan</option>
+	<option value="VU">Vanuatu</option>
+	<option value="VE">Venezuela, Bolivarian Republic of</option>
+	<option value="VN">Viet Nam</option>
+	<option value="VG">Virgin Islands, British</option>
+	<option value="VI">Virgin Islands, U.S.</option>
+	<option value="WF">Wallis and Futuna</option>
+	<option value="EH">Western Sahara</option>
+	<option value="YE">Yemen</option>
+	<option value="ZM">Zambia</option>
+	<option value="ZW">Zimbabwe</option>
+</select>
+                   
+                  </div> 
+
+
+                         <div class="row">
+                             <div class="col-sm-6">
+                                
+                                  <div class="form-group pad">
+                                        <label>Dates</label>
+                                         <table class="table">
+                                          <thead>
+                                            <tr>
+                                             
+                                              <th>Date</th>
+                                              
+                                              <th>Remove</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr *ngFor="let date of eventB.dates; let i = index">
+                                             
+                                              <td>{{date.month}}/{{date.day}}/{{date.year}}</td>
+                                              
+                                              <td><i (click)="removeDate(eventB,i)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                                            </tr>
+                                            
+                                          </tbody>
+                                        </table>
+                                        
+                                  </div>
+                            </div>
+                            <div class="col-sm-6">
+                                
+                                  <div class="form-group pad">
+                                        <label>Add Date</label>
+                                        <div class="input-group">
+                                            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="selectedDate" ngbDatepicker #ed="ngbDatepicker">
+                                            <button class="input-group-addon" (click)="ed.toggle()" type="button">
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                        <button type="button" style="margin-top: 1rem;" (click)="addDate(eventB, selectedDate)" class="btn btn-sm btn-primary orange">Add Date</button>
+                                  </div>
+                                  
+                            </div>
+
+
+                      </div>
+ 
+                      
+                      
+                          <div style="text-align: right;" class="pad">
+               <button type="button" (click)="deleteEvent(i)" class="btn btn-secondary">Delete</button> 
+               </div>
+
+ </div>
+                      
+                  
+                      
+                  </div>
+             
+            <div class="pad">
+                  
+                  <label>Attendees</label>
+                  
+                  
+            <table class="table">
+                      <thead>
+                        <tr>
+                         
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Email</th>
+                           <th>Certificate</th>
+                          <th>Remove</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let user of eventB.attendance; let i = index">
+                         
+                          <td>{{user.FirstName}}</td>
+                          <td>{{user.LastName}}</td>
+                          <td>{{user.Email}}</td>
+                          <td>View</td>
+                          <td><i (click)="removeUser(eventB, i)" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+
+            </div>
+            
+               <div class="row">
+                        
+                      <div class="col-sm-4">
+                           <label>Add Attendee</label>
+                          <app-user-type [userModel]="addAttendee" (user)="addUser(eventB, $event)"></app-user-type>
+                          </div>
+                </div>  
+                
+                 <div class="form-group pad">
+                       <label>Attendance</label>
+                         <table class="table">
+                      <thead>
+                        <tr>
+                          <th></th>
+                          <th *ngFor="let date of eventB.dates; let i = index">{{date.month}}/{{date.day}}/{{date.year}}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let user of eventB.attendance; let i = index">
+                          <td>{{user.LastName}}, {{user.FirstName}}</td>
+                          <td *ngFor="let date of eventB.dates; let i = index"><input name="{{user.LastName}}{{date.year}}{{date.month}}{{date.day}}" [(ngModel)]="user[date.year+''+date.month+''+date.day]" type="checkbox"></td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                </div>
+             
+               
+            </ng-template>
+          </ngb-panel>
+    </ngb-accordion>
+     
+     
+     
+    </ng-template>
+  </ngb-tab>
+  
+</ngb-tabset>
+                  
+                  
+                  
+                                   
+                                    
+                  
+                  
+                   
+                
+                 
+               
+                  
+                  
+             
+                  
+               <div class="pad">
+               <button type="submit" class="btn orange btn-primary">Save</button> 
+               </div>
+            </form>
+            
+        <!--   <pre>{{product | json}}</pre>    -->       
+            
+             
+         </div>
+     </div>
+ </div>
+ 
+ <app-footer></app-footer>

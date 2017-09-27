@@ -1,0 +1,130 @@
+/* PRODUCT PAGE */
+
+
+
+
+/* PRODUCT SUMMARY CAPSULES */
+
+.product-capsule {width:9.5rem;display:inline-block;vertical-align:top;margin:0.7rem;margin-top:0px;}
+.product-capsule img {width:100%;display:block;margin:0px auto;margin-bottom:1.5rem;}
+
+.product-capsule-title {font-size:0.9rem;margin-bottom:1rem;text-align:left;}
+.product-capsule-price {font-weight:bold;font-size:0.8rem;margin-bottom:1.5rem;text-align:left;}
+
+
+
+/* THREE COLUMN FEATURE TABLE AT TOP OF PAGE */
+
+.product-feature {position:relative;z-index:100;}
+.feature-block {margin:-20px;margin-bottom:5rem;}
+.feature-table {border-collapse: separate;border-spacing:20px;min-height:600px;width:100%;z-index:100;}
+.feature-table-showcase {background-color:#eee;position:relative;width:40%;}
+.feature-table-showcase-content {position:absolute;bottom:0px;padding:10px;font-weight:bold;text-transform:uppercase;}
+.feature-table-headline {vertical-align:middle;height:175px;}
+.feature-table-new {background-color:#eee;position:relative;}
+.feature-table-new-content {position:absolute;bottom:0px;padding:10px;font-weight:bold;text-transform:uppercase;}
+.feature-table-promo {background-color:#eee;position:relative;}
+.feature-table-promo-content {background-color:#fff;position:absolute;bottom:0px;left:-1px;width:100%;padding:10px;outline:1px solid #fff;}
+.feature-table-promo-content .promo-content-title {}
+.feature-table-promo-content .promo-content-price {font-weight:bold;position:relative;top:12px;}
+.feature-table-promo-content .promo-content-price strike {font-family:'ProximaNova-Regular';}
+
+
+/* MOBILE VERSION OF THREE COLUMN FEATURE TABLE AT TOP OF PAGE */
+
+.product-feature-mobile {margin-bottom:5rem;}
+
+
+/* LANGUAGE FILTER */
+
+.product-language-filter-block {margin-bottom:5rem;}
+.product-language-filter {text-transform:uppercase;font-size:0.8rem;}
+
+
+/* SLATE FEATURING MULTIPLE PRODUCTS */
+
+.product-slate {margin-bottom:6rem;position:relative;text-align:center;}
+.product-slate-splash {width:100%;margin-bottom:3rem;}
+.product-overview {margin-bottom:6rem;position:relative;}
+.product-overview-title {z-index:100;padding-top:2rem;}
+.product-overview-text {z-index:100;}
+
+
+/* VISUAL FLOURISHES (MAY NEED A BETTER WAY TO HANDLE THESE) */
+
+.product-flourish1 {position:absolute;right:-250px;top:370px;z-index:10;height:250px;}
+.product-flourish2 img {height:100%;}
+
+.product-flourish2 {position:absolute;left:-250px;top:370px;z-index:10;}
+.product-flourish2 img {height:100%;}
+
+.product-flourish3 {position:absolute;right:-200px;top:0px;z-index:-1;height:250px;}
+.product-flourish3 img {height:100%;}
+
+.product-flourish4 {position:absolute;right:-200px;top:0px;z-index:-1;height:140px;}
+.product-flourish4 img {height:100%;}
+
+.product-flourish5 {position:absolute;left:-200px;top:500px;z-index:50;height:140px;}
+.product-flourish5 img {height:100%;}
+
+.product-flourish6 {position:absolute;left:-200px;top:160px;z-index:-1;height:140px;}
+.product-flourish6 img {height:100%;}
+
+.product-flourish7 {position:absolute;right:-200px;top:430px;z-index:50;height:130px;}
+.product-flourish7 img {height:100%;}
+
+
+
+/* PACKS SECTION (TWO PRODUCTS LAYERED INTO A PACKAGE) */
+
+.product-slate-package {text-align:center;}
+
+.product-package {position:relative;height:350px;width:200px;display:inline-block;margin-left:15px;margin-right:15px;}
+
+.product-package-item1 {position:absolute;top:0px;left:0px;z-index:10;width:145px;}
+.product-package-item1 img {width:100%;}
+
+.product-package-item2 {position:absolute;top:50px;left:50px;z-index:20;width:145px;}
+.product-package-item2 img {width:100%;}
+
+
+.product-package-info {position:absolute;top:255px;text-align:left;width:100%;}
+.product-package-title {font-size:0.9rem;margin-bottom:1rem;}
+.product-package-price {font-weight:bold;font-size:0.8rem;}
+
+
+
+
+
+
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+.flourish1 img {display:block;}
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+.product-slate {text-align:left;}
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+
+}
+
+
+

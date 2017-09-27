@@ -1,0 +1,38 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+
+<div id="breadcrumb" class="container">
+    <div class="row">
+        <div class=" col-sm-6 d-flex align-items-center">Resources&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bor">Faculty</span></div>
+    </div>
+</div>
+
+
+<div id="faculty" class="container">
+    <div class="row">
+        <div class="offset-sm-3 col-sm-6">
+            <h1>NOI instructors </h1>
+            <p style="margin-bottom:3rem;">highly qualified, undergo lengthy training to NOI standards and participate actively in conferences, university programmes and other postgraduate education sessions with multidisciplinary audiences.</p>
+            <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+              <p style="margin-top: 7rem; margin-bottom: 7rem;"><b style="text-transform: uppercase;">course delivered in:    EN   /   ESP   /   NL   /   POR</b></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-sm-2 col-sm-8">
+            <div class="row">
+                <div *ngFor="let instructor of set" class="col-sm-4">
+                    <a [routerLink]="['/faculty/'+instructor._id]"><img class="img-fluid" src="http://13.55.59.91/uploads/{{instructor.image}}"></a>
+                    <h3>{{instructor.FirstName}} {{instructor.LastName}}</h3>
+                    <p> <span *ngIf="instructor.English">EN,</span><span *ngIf="instructor.Italiano">IT</span><span *ngIf="instructor.Espanol">,ESL</span><span *ngIf="instructor.Deutsch">,UR</span><span *ngIf="instructor.Dansk">,DA</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- end container -->
+
+<app-footer></app-footer>

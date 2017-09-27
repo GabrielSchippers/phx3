@@ -1,0 +1,44 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+<div id="breadcrumb" class="container">
+    <div class="row">
+        <div class=" col-sm-6 d-flex align-items-center">Resources&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Faculty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="bor">{{obj.FirstName}} {{obj.LastName}}</span></div>
+       
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="offset-sm-1 col-sm-10">
+<div class="container">
+    <div class="row">
+        <div class="col-12"><h1 style="margin-bottom: 2rem;">{{obj.FirstName}} {{obj.LastName}}</h1></div>
+    </div>
+    <div class="row block">
+        
+        <div class="col-sm-4"><div style="padding: 0rem 1rem 1rem 0;" ><img class="img-fluid" src="http://13.55.59.91/uploads/{{obj.image}}"></div></div>
+        <div class="col-sm-8">
+            <h2>About</h2>
+            <p><span class="spec">Languages:</span> English<br>
+            <!-- <span class="spec">Courses:</span> Graded Motor Imagery, Explain Pain, Neurodynamics and the Neuromatrix, Mobilisation of the Nervous System, Explain Pain: 1 Day</p> -->
+ 
+<div [innerHtml]="obj.Description"></div>    
+    
+<!-- <h3 style="text-transform: uppercase; margin-top: 2rem;" class="bor">Upcoming courses, start date:</h3>
+<p>16th Sep 2017	Graded Motor Imagery Lisbon, Portugal							ENQUIRY</p> -->
+
+<div *ngIf="obj.Publications">
+<h3 style="text-transform: uppercase; margin-top: 2rem;" class="bor">PUBLICATIONS</h3>
+    {{obj.Publications}}
+</div>
+
+
+    </div></div>
+    </div>
+
+    </div>
+</div>
+  <p class="button"><button [routerLink]="['/faculty']" class="btn orange btn-primary">See MORE Faculty members</button></p>
+
+</div>
+<app-footer></app-footer>

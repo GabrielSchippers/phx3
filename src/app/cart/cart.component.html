@@ -1,0 +1,89 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12"><h1>Shopping Cart</h1> 
+        
+          
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col-sm-9">
+                <div id="cart">
+                    
+                    <table class="table table-striped">
+                      
+                      <tbody>
+                        <tr *ngFor="let item of cart; let i = index">
+                          <th class="hidden-xs-down" style="padding: 2rem;" scope="row"><img style="max-height: 8rem; "class="shadow img-fluid" src="{{item.images[0]}}"></th>
+                          <td  ><h3>{{item.name}}</h3></td>
+                          <td  width="20%">
+                              
+                               <div class="form-group">
+    <label for="exampleInputPassword1">Quantity</label>
+    <input (change)="getSubtotal()" [(ngModel)]="cart[i].qty" style="max-width: 6rem;" type="number" class="form-control" id="exampleInputPassword1">
+  </div>
+                          </td>
+                          <td width="25%">
+                            
+                              <h3>AUD {{ (item.skus.data[0].price / 100) * item.qty | currency:'AUD':true}}</h3>
+                             
+                              </td>
+                              
+                              <td><i (click)="removeCart(i)" style="font-size: 1.25rem;" class="fa fa-trash-o" aria-hidden="true"></i></td>
+                        </tr>
+                                              </tbody>
+                    </table>
+
+
+                                         
+                </div>
+                <div id="totals">
+                    
+                    <h2>SUBTOTAL: {{subtotal / 100 | currency:'AUD':true }}</h2>
+                     
+                    <div id="buttons">
+                        <button [routerLink]="['/products']" style="background: #cccccc; float: left;" class="btn btn-sm silver btn-primary">Continue Shopping</button>
+                        
+                        <button *ngIf="login" [routerLink]="['/checkout']" style=" float: right;" class="btn btn-sm orange btn-primary">Continue Checkout</button>
+                        <button *ngIf="!login" [routerLink]="['/login']" style=" float: right;" class="btn btn-sm orange btn-primary">Continue Checkout</button>
+                        
+                    </div>
+                </div>
+            </div>
+        <div class="col-sm-3 padded orange">
+            <h3>NEED HELP?</h3>
+            <p>Send us an email to 
+<a href="#">noigroup@info.com</a> with your 
+contact number and we will
+give you a call.
+
+            </p>
+            
+            <h3>Shipping</h3>
+            <p>Expected shipping time for 
+Australia is 2-7 working days. 
+Please read our purchase
+and delivery <a href="#">Terms & 
+Conditions</a>.</p>
+
+<p>For International orders
+select your country at the
+checkout to see shipping 
+costs.</p>
+           
+            <h3>Security</h3>
+            <p>Your details are safe and
+secure.</p>
+<img style="padding-right: 2rem;" class="img-fluid" src="http://13.55.59.91/assets/cards.jpg">
+        </div>
+    </div>
+  
+    
+</div><!-- end container -->
+
+<app-footer></app-footer>

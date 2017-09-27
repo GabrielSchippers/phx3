@@ -1,0 +1,31 @@
+/* The side navigation menu */
+#sidenav {
+    height: 100%; /* 100% Full-height */
+    padding: 1.25rem; /* 0 width - change this with JavaScript */
+    background: black;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+
+#dashmenu{
+    font-family: 'proxima_nova_rgbold' !important; 
+    list-style: none; 
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    padding:0; margin: 0;
+    }
+    #dashmenu li{margin-bottom: 1rem;}
+    #dashmenu i{}
+    #dashmenu li a{color: white;}
+    #sidenav span{display: none; padding-left: 1rem;}
+    #sidenav.toggle span{display: inline !important;}
+    
+    #dashmenu li a:hover{color: #e86a10; text-decoration: none;}

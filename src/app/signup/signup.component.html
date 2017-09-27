@@ -1,0 +1,15 @@
+<div class="container">
+<form (ngSubmit)="execute()" >
+  <div class="form-group">
+  
+    <input [(ngModel)]="signup.email" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    
+  </div>
+  <div class="form-group">
+ 
+    <input [(ngModel)]="signup.password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Create Password">
+  </div>
+ 
+   <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

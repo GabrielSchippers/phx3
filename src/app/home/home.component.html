@@ -1,0 +1,260 @@
+<app-loader *ngIf="loading"></app-loader>
+<app-header></app-header>
+
+  <div id="leftpane" class="rotate hidden-sm-down">
+    <h5>T (030) 300 63 300 </h5>
+</div>
+
+<div id="socialpane" class="hidden-sm-down">
+    <p><i class="fa fa-twitter" aria-hidden="true"></i></p>
+    <p><i class="fa fa-instagram" aria-hidden="true"></i></p>
+    <p><i class="fa fa-facebook" aria-hidden="true"></i></p>
+</div>
+
+<div class="sliding-hero">
+    <div class="fullscreen_sliding"><img src="./assets/carousel/brain_train/1.jpg"/></div>
+    <div class="left-mask-container">
+        <div class="relative-container">
+            <div class="floating-text">
+                <h1>
+                    {{text[0]}}
+                    <br />
+                    {{text[1]}}
+                </h1>
+                <p>{{text[2]}}</p>
+                <p>{{text[3]}}</p>
+
+                <a class="btn hidden-sm-down btn-sm orange btn-primary" style="margin-top: 1rem;">READ MORE</a>
+            </div>
+        </div>
+    </div>
+   
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="{{imgUrl[2]}}"/>
+            </div>
+
+             <div class="swiper-slide">
+                <img src="{{imgUrl[3]}}"/>
+            </div>
+
+             <div class="swiper-slide">
+                <img src="{{imgUrl[0]}}"/>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="{{imgUrl[1]}}"/>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="{{imgUrl[2]}}"/>
+            </div>
+
+             <div class="swiper-slide">
+                <img src="{{imgUrl[3]}}"/>
+            </div>
+
+             <div class="swiper-slide">
+                <img src="{{imgUrl[0]}}"/>
+            </div>
+
+            <div class="swiper-slide">
+                <img src="{{imgUrl[1]}}"/>
+            </div>
+
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="right-mask-container">
+        <div class="relative-container">
+            <div class="btncont">
+                <div ngsReveal id="dots1">
+                    <div id="scene3">
+                        <img data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/dots1.png">
+                    </div>
+                </div>
+
+                <button style="margin-left: 1rem;" class="slider-prev btn arrow orange btn-primary"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+
+                <br>
+
+                <button style="margin-left: 1rem;" class="slider-next btn arrow black btn-primary"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="courses">
+        <div ngsReveal id="dots2"><div id="scene4"><img data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/dots2.png"></div></div>
+    <div class="container-fluid">
+
+
+
+        <div style="padding-top: 1rem;" class="row">
+            <div class="col-md-3  d-flex align-items-center ">
+            <h1>NOI Courses<br>
+            Sed ut perspiciatis unde </h1>
+            </div>
+            <div class="col-md-9">
+
+                <div class="row numslides">
+                    <div class="col-md-4">
+                        <h2>CA</h2>
+                        <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                        <a ngsReveal [routerLink]="['/courses', '1']"><img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg"></a>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>CA</h2>
+                        <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                        <a ngsReveal [routerLink]="['/courses', '2']"><img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg"></a>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>CA</h2>
+                        <b>EXPLAIN PAIN - 10th Jun 2017</b><br>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+                        <a ngsReveal [routerLink]="['/courses', '3']"><img class="img-fluid" src="http://13.55.59.91/assets/courses1.jpg"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="products" class="container-fluid noGutter">
+
+    <div ngsReveal id="circle1"><div id="scene5"><img data-depth="1.0" class="img-fluid" src="http://13.55.59.91/assets/circle.png"></div></div>
+
+
+    <div class="row">
+        <div  style="background-image: url('http://13.55.59.91/assets/product1.jpg');" class="col-6 col-md-3 zoom">
+            <h5 class="tang1">Explain Pain</h5>
+          <div class="img"><img class="img-fluid" src="http://13.55.59.91/assets/product1.jpg"></div>
+           </div>
+
+          <div class="col-6 col-md-3 zoom">
+               <h5 class="tang2">Neurodynamics</h5>
+          <div class="img"><img class="img-fluid" src="http://13.55.59.91/assets/product2.jpg"></div>
+         </div>
+
+         <div class="col-6 col-md-3 zoom">
+              <h5 class="tang3">Brain Training</h5>
+            <div class="img"><img class="img-fluid" src="http://13.55.59.91/assets/product3.jpg"></div>
+        </div>
+         <div class="col-6 col-md-3 d-flex align-items-center ">
+             <div style="padding: 2rem;">
+            <h1>NOI Products<br>Finibus Bonorum</h1>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+            <button  [routerLink]="['/product']" class="btn black" style = "cursor: pointer;">MORE DETAILS</button>
+             </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid" style="background: #f5f5f5;">
+   <div ngsReveal style="position: absolute; right: -10rem; bottom: -10rem; z-index: -1; width: 20rem;">
+       <div id="scene6">
+       <img data-depth="0.5"  class="img-fluid" src="http://13.55.59.91/assets/elipse2.png">
+       </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-5 block d-flex align-items-center justify-content-center">
+
+             <img ngsReveal style="position: absolute; left: -20rem; z-index: -1;" class="img-fluid" src="http://13.55.59.91/assets/elipse1.png">
+             <img ngsReveal style="position: absolute; left: 20rem; bottom: 5vw; z-index: -1; max-width: 15rem;" class="img-fluid" src="http://13.55.59.91/assets/sqig.png">
+
+            <div style="max-width: 20rem;">
+                <h1>NOI STORY<br>dolorem Malorum</h1>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+                <button  [routerLink]="['/blog']" class="btn black" style = "cursor: pointer;">SEE MORE</button>
+            </div>
+        </div>
+        <div  class="col-sm-5">
+
+            <div ngsReveal id="s"><div id="scene7"><span data-depth="1.0">S</span></div></div>
+            <img ngsReveal class="img-fluid" src="http://13.55.59.91/assets/storygraph.jpg">
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+
+<div *ngIf="posts" class="container-fluid paragraphs">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <h1 class="number">347</h1>
+            <p class="noijam">NOI JAM - BLOG<br>Finibus Bonorum</p>
+        </div>
+
+        <div class="col-sm-6 col-md-2">
+            <img ngsReveal class="img-fluid" src="{{posts[0].thumb}}">
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+            <div [innerHtml]="posts[1].excerpt" style="padding:3rem;">
+
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-2">
+             <img ngsReveal class="img-fluid" src="{{posts[1].thumb}}">
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6  col-md-2"><img ngsReveal class="img-fluid" src="{{posts[2].thumb}}"></div>
+        <div class="col-sm-6 col-md-4">
+            <div [innerHtml]="posts[2].excerpt" style="padding:3rem;">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-2"><img ngsReveal class="img-fluid" src="{{posts[3].thumb}}"></div>
+        <div class="col-sm-6 col-md-4"><div [innerHtml]="posts[3].excerpt" style="padding:3rem;">
+
+        </div></div>
+    </div>
+</div>
+
+
+<div id="noiresources" class="container-fluid">
+    <h1 style="margin-bottom: 5rem;" class="resources">NOI RESOURCES<br> dolorem Malorum</h1>
+</div>
+
+<app-resources-shift></app-resources-shift>
+
+<div id="twitter" class="container">
+    <div class="row">
+        <div class="col-12">
+        <h1 style="margin-bottom: 3rem; margin-top: 6rem;"><i style="color: #3c9ff6;" class="fa fa-twitter" aria-hidden="true"></i> TWITTER UPDATES</h1>
+        </div>
+     </div>
+     <div class="row">
+         <div class="col-sm-6"><div style="background: #f9f9f9; padding: 3rem;">
+             <div class="row">
+                 <div class="col-sm-2"></div>
+                 <div class="col-sm-10">
+             <b>NOI NL Bart v Buchem <br>
+             @Pijninfo</b><br>
+"Last last call... explain pain cursus 9 + 17 juni - Eemnes - laatste plaatsen? Wie o wie? Mail naar noinl@noigroup.com <a href="#">@noigroupuk</a> <a href="#">@noigroup</a>
+         </div></div></div></div>
+
+        <div class="col-sm-6"><div style="background: #f9f9f9; padding: 3rem;">
+             <div class="row">
+                 <div class="col-sm-2"></div>
+                 <div class="col-sm-10">
+             <b>NOI NL Bart v Buchem <br>
+             @Pijninfo</b><br>
+"Last last call... explain pain cursus 9 + 17 juni - Eemnes - laatste plaatsen? Wie o wie? Mail naar noinl@noigroup.com <a href="#">@noigroupuk</a> <a href="#">@noigroup</a>
+         </div></div></div></div>
+     </div>
+</div>
+
+
+<app-footer></app-footer>

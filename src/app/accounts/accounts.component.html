@@ -1,0 +1,63 @@
+<app-loader *ngIf="loading"></app-loader>
+ <app-dashboard-menu></app-dashboard-menu>
+ <div id="menufix">
+ <app-header></app-header>
+ 
+ 
+ <div class="container">
+     <div class="row">
+                     
+            
+            
+            <div class="col-12 ">
+              <section>
+                  <div class="row block d-flex align-items-center">
+                      <div class="col-sm-6"><h3>Accounts</h3></div>
+                      <div class="col-sm-3"><button [routerLink]="['/dashboard/accounts/detail']">Create Account</button></div>
+                      <div class="col-sm-3"><form (ngSubmit)="search(1)"><input type="text" placeholder="Search" name="Search" [(ngModel)]="query" class="form-control form-control-sm"></form></div>
+                  </div>
+                  
+                  <table class="table">
+                      <thead>
+                        <tr>
+                          
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Roles</th>
+                         <th>Edit</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let user of users">
+                          
+                           <td>{{user.FirstName}} {{user.LastName}}</td>
+                          <td>{{user.Email}}</td>
+                          <td>
+                               <i *ngIf="user.IsCourseHost" class="fa fa-h-square" aria-hidden="true"></i>
+                              <i *ngIf="user.IsFaculty" class="fa fa-graduation-cap" aria-hidden="true"></i>
+                             <i *ngIf="user.IsStaff" class="fa fa-lock" aria-hidden="true"></i>
+                            </td>
+                          
+                          <td class="actions"><a [routerLink]="['/dashboard/accounts/detail/'+user._id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a (click)="delete(user._id)"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+
+                        </tr>
+                       
+                      </tbody>
+                    </table>
+               </section>
+            </div>
+            <div style="text-align: center;" class="col-12">
+                <hr>
+               <ngb-pagination [collectionSize]="collectionSize"  (pageChange)="loadPage($event)" [(page)]="page" [maxSize]="10" [pageSize]="pageSize"  [boundaryLinks]="true"></ngb-pagination>
+
+            </div>
+
+            
+            
+             
+       
+     </div>
+ </div>
+ 
+ <app-footer></app-footer>
+ </div>
