@@ -1,20 +1,28 @@
-import { ViewChild, ElementRef, AfterViewInit, OnInit, Component } from '@angular/core';
+import { ViewChild, ElementRef, AfterViewInit, OnInit, Component, OnDestroy } from '@angular/core';
 import { DataService } from '../data.service';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import Parallax from 'parallax-js';
 import Swiper from 'swiper';
 import { CookieService } from 'ngx-cookie';
-
-
+import { Router, NavigationStart, NavigationEnd, RoutesRecognized } from '@angular/router';
+import { Location } from '@angular/common';
+import { Observable, Subscription } from 'rxjs';
+import 'rxjs/add/operator/pairwise';
+import 'rxjs/add/operator/first';
+import {HostListener} from '@angular/core';
 declare var jQuery: any;
-
+@HostListener ('window:popstate', ['$event'])
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements AfterViewInit, OnInit {
+export class HomeComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild('accord') accord: ElementRef;
+
+  private _routeScrollPositions: {[url: string]: number} = {};
+  private _subscriptions: Subscription[] = [];
+
   loading: boolean;
   posts: any;
   index: number;
@@ -23,6 +31,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
   swiper: any;
   flag: any;
   opacity: any;
+  delay: number;
   imgUrlArr = [
     "./assets/carousel/brain_train/1.jpg",
     "./assets/carousel/brain_train/2.jpg",
@@ -65,30 +74,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
       console.log(el);
   }
 
-  constructor(private DataService: DataService, private sanitizer: DomSanitizer, private _cookieService:CookieService) { }
-
-  // setCookie(name: string, value: string, expireDays: number, path: string = '') {
-  //   let d:Date = new Date();
-  //   d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
-  //   let expires:string = `expires=${d.toUTCString()}`;
-  //   let cpath:string = path ? `; path=${path}` : '';
-  //   document.cookie = `${name}=${value}; ${expires}${cpath}`;
-  // }
-
-  // getCookie(name: string) {
-  //   let ca: Array<string> = document.cookie.split(';');
-  //   let caLen: number = ca.length;
-  //   let cookieName = `${name}=`;
-  //   let c: string;
-
-  //   for (let i: number = 0; i < caLen; i += 1) {
-  //       c = ca[i].replace(/^\s+/g, '');
-  //       if (c.indexOf(cookieName) == 0) {
-  //           return c.substring(cookieName.length, c.length);
-  //       }
-  //   }
-  //   return '';
-  // }
+  constructor(private router: Router, private location: Location, private DataService: DataService, private sanitizer: DomSanitizer, private _cookieService:CookieService, ) { }
 
   getCookie(key: string){
     return this._cookieService.get(key);
@@ -126,30 +112,28 @@ export class HomeComponent implements AfterViewInit, OnInit {
             );
    }
 
-   ngOnInit() {
+  ngOnInit() {
+
       this.imgUrl = this.imgUrlArr.slice(0, 4);
       this.text = this.textArr.slice(0, 4)
-      console.log("getcookie:", this.getCookie("visited"));
+      if (this.getCookie("visited") == "1" ) {
+        jQuery(".sliding-hero .fullscreen_sliding").css({  display: "none" });
+        this.delay = 0;
+      }
       if (this.getCookie("visited") == null || this.getCookie("visited") == undefined) {
         jQuery(".sliding-hero .fullscreen_sliding").delay(10000).animate({ width: "25%", opacity: 0.5, margin: 0, height: "100%", left: "50%" }, 1000 );
         jQuery(".sliding-hero .fullscreen_sliding").delay(0).animate({  opacity: 0 }, 1000 );
+        this.delay = 10000;
         this.setCookie ("visited", "1");
         this.opacity = 0;
       }
-      if (this.getCookie("visited") == "1" ) {
-        jQuery(".sliding-hero .fullscreen_sliding").css({  display: "none" });
-
-      }
-      console.log("flag", this.flag);
-   }
+      
+      
+  }
 
   ngAfterViewInit() {
       this.blog();
       this.index = 0;
-      var delay = 10000;
-      if (this.getCookie("visited") == "1" ) {
-        delay = 0;
-      }
       setTimeout (()=>{
         this.swiper = new Swiper('.swiper-container', {
           slidesPerView: 4,
@@ -171,8 +155,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
           },
         });
         this.swiper.on('slideChangeEnd', this.endSlider.bind(this))
-      }, delay);
-console.log("swiper: ", this.swiper);
+      }, this.delay);
 
     //this.swiper.on('slideChangeEnd', this.endSlider.bind(this))
 
@@ -191,13 +174,11 @@ console.log("swiper: ", this.swiper);
     var parallax6 = new Parallax(scene6);
     var parallax7 = new Parallax(scene7);
 
-      console.log('ran!');
-      console.log(scene);
+      //console.log("parallax scene: ", scene3);
 
   }
 
   endSlider(){
-      console.log(this.index)
       this.index ++;
       if (this.index == 16){
         this.index = 0;
@@ -263,5 +244,13 @@ console.log("swiper: ", this.swiper);
       }
       */
     }
+  ngOnDestroy() {
+    this._subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
 
+  savePosition(){
+    var yPosition = window.pageYOffset;
+    this.setCookie ("yPosition", "yPosition");
+    console.log("!!!!!", this.getCookie("yPosition"));
+  }
 }
