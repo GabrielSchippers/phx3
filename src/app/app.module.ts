@@ -25,6 +25,9 @@ import { CoursesComponent } from './courses/courses.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PagesComponent } from './pages/pages.component';
 import { ProductsComponent } from './products/products.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { TermsComponent } from './terms/terms.component';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -75,6 +78,9 @@ const appRoutes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'resources', component: ResourcesComponent },
   { path: 'courses', component: CoursesComponent },
+  { path: 'disclaimer', component: DisclaimerComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'terms', component: TermsComponent },
   { path: 'courses/:id', component: CourseDetailComponent },
   
   { path: 'pages', component: PagesComponent },
@@ -150,6 +156,9 @@ import { SearchComponent } from './search/search.component';
     CoursesComponent,
     OrdersComponent,
     PagesComponent,
+    DisclaimerComponent,
+    PrivacyComponent,
+    TermsComponent,
     ProductsComponent,
     UsersComponent,
     LoginComponent,
