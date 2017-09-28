@@ -30,13 +30,10 @@ export class AppComponent {
       this._subscriptions.push(
         // save scroll position on route change
         this.router.events.pairwise().subscribe(([prevRouteEvent, currRouteEvent]) => {
-          console.log("111", prevRouteEvent);
-          console.log("222", currRouteEvent);
           
           if (prevRouteEvent instanceof NavigationEnd && currRouteEvent instanceof NavigationStart) {
             // url path without parameters
             let urlPath = (prevRouteEvent.urlAfterRedirects || prevRouteEvent.url ).split(';',1)[0];
-            console.log("url path : ", urlPath);
             this._routeScrollPositions[urlPath] = window.pageYOffset;
           }
         })
@@ -46,9 +43,6 @@ export class AppComponent {
             if (evt instanceof NavigationEnd) {
                 if (this._popState) {
                     let urlPath = (evt.urlAfterRedirects || evt.url).split(';',1)[0];
-                    console.log("url path1 : ", evt.urlAfterRedirects);
-                    console.log("url path 2: ", (evt.urlAfterRedirects || evt.url));
-                    console.log('scroll to ', this._routeScrollPositions[urlPath] || 0)
                     setTimeout(() => {
                         window.scrollTo(0, this._routeScrollPositions[urlPath] || 0);
                     }, 0);
