@@ -13,4 +13,25 @@ section{background: #efefef; padding: 1rem; margin-bottom: 1px; }
 a{color: black; border-radius: 4px; padding: 0.5rem;}
 a:hover{color: white; background: black; }
 
+@mixin btn_transition($color){
+    @if $color == #e86a10 {
+        background: linear-gradient(to left, #e86a10, black 50% )!important;
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.8s ease;
+    } @else {
+        background: linear-gradient(to left, black 50%, #e86a10)!important;
+        background-size: 200% 100%;
+        background-position: right bottom;
+        transition: all 0.8s ease;
+    }
+}
 
+button, .btn{
+    @include btn_transition (background);
+    background-position: left bottom;
+}
+
+button:hover, .btn:hover {
+    background-position: left bottom;
+}

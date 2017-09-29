@@ -6,6 +6,26 @@ $purple: #892582;
 $teal: #298094;
 $black: #000000;
 
+@mixin btn_transition($color){
+    @if $color == #e86a10 {
+        background: linear-gradient(to left, #e86a10 50%, black 50% )!important;
+        
+    } @else {
+        background: linear-gradient(to left, black 50%, #e86a10 50%)!important;
+    }
+}
+
+button, .btn{
+    @include btn_transition ($orange);
+    background-size: 200% 100% !important;
+    background-position: right bottom !important;
+    transition: all 0.8s ease;
+}
+
+button:hover, .btn:hover {
+    background-position: left bottom !important;
+}
+
 .as-pagination-buttons{display: none !important;}
  
 .red{background-color: $red !important; color: white;}
